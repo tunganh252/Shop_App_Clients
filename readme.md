@@ -57,5 +57,7 @@
 
 - ***Tìm hiểu file "Build.Gradle."***
 - https://www.youtube.com/watch?v=Ad41Bh704ms&list=PLaoF-xhnnrRW4lXuIhNLhgVuYkIlF852V
+- https://www.youtube.com/watch?v=G7ZOU8yKmdI
+- https://www.youtube.com/watch?v=byLKoPgB7yA
 
 **Google & Youtube.**
