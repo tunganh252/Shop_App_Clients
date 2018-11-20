@@ -42,6 +42,7 @@ public class Details_detail extends AppCompatActivity {
     Details currentDetails;
 
     Button bt_buy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +53,11 @@ public class Details_detail extends AppCompatActivity {
         details = database.getReference("Details");
 
 
-        ///// Xem sản phẩm from table "Details" trong Activity "details_detail"
         bt_number = findViewById(R.id.number_button);
         bt_cart = findViewById(R.id.bt_cart);
         bt_buy=findViewById(R.id.bt_buy);
+
+
 
         bt_buy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +85,8 @@ public class Details_detail extends AppCompatActivity {
             }
         });
 
+        ///// Xem sản phẩm from table "Details" trong Activity "details_detail"
+
         details_description = findViewById(R.id.details_description);
         details_image = findViewById(R.id.details_image);
         details_name = findViewById(R.id.details_name);
@@ -104,6 +108,10 @@ public class Details_detail extends AppCompatActivity {
 
 
     }
+
+    ////// Đổ img, name, price vào layout details_detail.xml
+    ////// Khai báo giá trị currentDetails lấy từ model (Details) --> get(name,img,price) đổ vào ánh xạ đã khai báo
+
 
     private void getDetails_detail(String detailsId) {
 

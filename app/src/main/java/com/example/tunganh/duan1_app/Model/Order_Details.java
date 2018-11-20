@@ -8,7 +8,7 @@ public class Order_Details {
     private String phone;
     private String address;
     private String total;
-
+    private String status; ///// trạng thái khi mua hàng
     private List<Order> details; //// Danh sách hàng đã mua
 
     public Order_Details() {
@@ -20,6 +20,15 @@ public class Order_Details {
         this.address = address;
         this.total = total;
         this.details = details;
+        this.status = "0"; ////// default 0 ---> 0: Order  1: Shipping   2: Shipped
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getName() {

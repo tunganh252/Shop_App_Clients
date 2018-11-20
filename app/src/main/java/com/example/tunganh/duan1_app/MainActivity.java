@@ -28,9 +28,9 @@ CircularProgressButton aaa;
         bt_dangki=findViewById(R.id.bt_dangki);
 
         //// add font
-        tv_slogan=findViewById(R.id.text_slogan);
-        Typeface face=Typeface.createFromAsset(getAssets(),"font/NABILA.TTF");
-        tv_slogan.setTypeface(face);
+//        tv_slogan=findViewById(R.id.text_slogan);
+//        Typeface face=Typeface.createFromAsset(getAssets(),"font/NABILA.TTF");
+//        tv_slogan.setTypeface(face);
         /////////////
 
 

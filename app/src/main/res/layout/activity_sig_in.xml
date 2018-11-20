@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
+
     tools:context=".SigIn">
 
 
@@ -12,18 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="68dp"
+
+        android:layout_marginTop="15dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="101dp"
         android:orientation="vertical">
 
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/logo" />
+            android:layout_height="140dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/logo1" />
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

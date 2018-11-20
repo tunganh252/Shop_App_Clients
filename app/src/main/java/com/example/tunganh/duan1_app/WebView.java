@@ -18,12 +18,13 @@ public class WebView extends AppCompatActivity {
         /////////// Web View ///////////
         webView = findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("local");
+        webView.loadUrl("https://www.thegioididong.com/");
 
         WebSettings webSettings=webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
     }
 
+    ////// set webview khi click back k trở về app, chỉ lùi 1 trang trên webview
     @Override
     public void onBackPressed() {
 

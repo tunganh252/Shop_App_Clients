@@ -16,9 +16,9 @@
         android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="110dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo1" />
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -155,7 +155,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="80dp"
             android:hint="Phone:"
             android:inputType="phone"
             android:textSize="30sp"
@@ -200,7 +200,7 @@
         android:textColor="#fff"
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:text="Register" />
 
 

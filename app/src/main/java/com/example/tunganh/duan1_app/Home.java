@@ -27,6 +27,7 @@ import com.example.tunganh.duan1_app.DetailsList.DetailsList;
 import com.example.tunganh.duan1_app.Display.ItemClickListener;
 import com.example.tunganh.duan1_app.General.General;
 import com.example.tunganh.duan1_app.Model.Category;
+import com.example.tunganh.duan1_app.Order_Status.Order_Status;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -74,8 +75,6 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
 
 
-
-
         /////////////Bottom Nav//////////////
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -98,7 +97,7 @@ public class Home extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Home.this,Cart.class);
+                Intent i = new Intent(Home.this, Cart.class);
                 startActivity(i);
             }
         });
@@ -128,7 +127,6 @@ public class Home extends AppCompatActivity
     }
 
 
-
     private void loadMenu() {
         adapter = new FirebaseRecyclerAdapter<Category, Menu_Adapter_View>(Category.class,
                 R.layout.menu_item,
@@ -145,7 +143,7 @@ public class Home extends AppCompatActivity
                     public void onClick(View view, int position, boolean isLongClick) {
 
                         /// lấy Category ID ---> truyền sang DetailsList
-                        Intent detailsList =new Intent(Home.this,DetailsList.class);
+                        Intent detailsList = new Intent(Home.this, DetailsList.class);
                         /// Trong firebase Category là key ---> get key
                         detailsList.putExtra("CategoryId", adapter.getRef(position).getKey());
                         startActivity(detailsList);
@@ -216,15 +214,19 @@ public class Home extends AppCompatActivity
         if (id == R.id.nav_menu) {
             // Handle the camera action
         } else if (id == R.id.nav_cart) {
-
+            Intent i = new Intent(Home.this, Cart.class);
+            startActivity(i);
         } else if (id == R.id.nav_order) {
-
+            Intent i = new Intent(Home.this, Order_Status.class);
+            startActivity(i);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_logout) {
-
+            Intent signIn = new Intent(Home.this, SigIn.class);
+            signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(signIn);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

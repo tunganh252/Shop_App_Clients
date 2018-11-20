@@ -31,7 +31,8 @@
         <activity android:name=".DetailsList.DetailsList" />
         <activity android:name=".DetailsList.Details_detail" />
         <activity android:name=".WebView" />
-        <activity android:name=".Cart.Cart"></activity>
+        <activity android:name=".Cart.Cart" />
+        <activity android:name=".Order_Status.Order_Status"></activity>
     </application>
 
 </manifest>

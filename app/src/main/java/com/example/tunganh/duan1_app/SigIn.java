@@ -60,6 +60,7 @@ Button bt_dangnhap,bt_dangki;
                                 Intent i= new Intent(SigIn.this,Home_2.class);
                                 General.currentUser=user;
                                 startActivity(i);
+                                finish();
                             } else {
                                 Toast.makeText(SigIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
                             }

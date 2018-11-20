@@ -15,9 +15,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo1" />
 
         <TextView
             android:id="@+id/text_slogan"
@@ -26,7 +26,8 @@
             android:gravity="center"
             android:textSize="22sp"
             android:layout_marginBottom="50dp"
-            android:text="“You can’t connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future.”"
+            android:text="@string/desc"
+            android:fontFamily="@font/font_desc"
             android:textColor="#fff" />
     </LinearLayout>
 
