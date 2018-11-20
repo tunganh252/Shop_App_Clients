@@ -20,7 +20,8 @@
 
 # Kéo dự án 
 
-> git clone https://github.com/tunganh252/DuAn_1.git
+> Command line: git clone https://github.com/tunganh252/Project_Shop_App.git
+> Hoặc: Download Zip, extract and run
 
 # OS & Programming Language
 
