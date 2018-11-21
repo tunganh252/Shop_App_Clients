@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.dd.CircularProgressButton;
 import com.example.tunganh.duan1_app.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +31,6 @@ public class Register extends AppCompatActivity {
         et_fullname = findViewById(R.id.et_fullname);
         et_phone = findViewById(R.id.et_phone);
         bt_dangki = findViewById(R.id.bt_dangki);
-
         /// Firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");

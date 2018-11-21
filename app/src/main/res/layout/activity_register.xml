@@ -190,7 +190,6 @@
 
     </LinearLayout>
 
-
     <Button
         android:id="@+id/bt_dangki"
         android:layout_width="match_parent"

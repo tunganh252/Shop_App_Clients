@@ -133,7 +133,7 @@
 
 
     </LinearLayout>
-<!--<com.dd.CircularProgressButton-->
+    <!--<com.dd.CircularProgressButton-->
     <!--android:layout_width="match_parent"-->
     <!--android:id="@+id/aaa"-->
     <!--android:layout_height="wrap_content" />-->
@@ -150,6 +150,33 @@
         android:background="@drawable/buttonsingup"
         android:text="Sign In"
         android:textColor="#fff" />
+
+    <!--<br.com.simplepass.loading_button_lib.customViews.CircularProgressButton-->
+        <!--android:id="@+id/bt_dangnhap"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:layout_marginBottom="70dp"-->
+        <!--android:background="@drawable/buttonsingup"-->
+        <!--android:text="Sign In"-->
+        <!--android:textColor="#fff" />-->
+
+    <!--<com.dd.CircularProgressButton-->
+    <!--android:id="@+id/bt_dangnhap"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_marginLeft="12dp"-->
+    <!--android:layout_marginRight="12dp"-->
+    <!--android:layout_marginBottom="70dp"-->
+    <!--android:backgroundTint="#A9d440"-->
+    <!--android:textColor="#FFF"-->
+    <!--app:cpb_cornerRadius="2dp"-->
+    <!--app:cpb_textComplete="Login Successful"-->
+    <!--app:cpb_textError="Login Failed"-->
+    <!--app:cpb_textIdle="Login" />-->
 
     <Button
         android:id="@+id/bt_dangki"

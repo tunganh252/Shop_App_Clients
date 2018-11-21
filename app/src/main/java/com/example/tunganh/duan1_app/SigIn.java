@@ -21,7 +21,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SigIn extends AppCompatActivity {
 MaterialEditText et_user,et_pass;
-Button bt_dangnhap,bt_dangki;
+Button bt_dangki,bt_dangnhap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ Button bt_dangnhap,bt_dangki;
                                 Toast.makeText(SigIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        else 
+                        else
                         {
                             Toast.makeText(SigIn.this, "User is not register !!!", Toast.LENGTH_SHORT).show();
                         }
