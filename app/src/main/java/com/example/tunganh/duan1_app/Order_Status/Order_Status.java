@@ -56,6 +56,7 @@ public class Order_Status extends AppCompatActivity {
                 viewHolder.tv_order_status.setText(convertCodeToStatus(model.getStatus()));
                 viewHolder.tv_order_name.setText(model.getName());
                 viewHolder.tv_order_phone.setText(model.getPhone());
+                viewHolder.tv_order_email.setText(model.getEmail());
                 viewHolder.tv_order_address.setText(model.getAddress());
 
             }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="220dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="12dp"
     app:cardElevation="4dp"
@@ -209,6 +209,42 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/font_a"
+                    android:gravity="center_vertical|start"
+                    android:text="- Email:"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+
+                    />
+
+                <TextView
+                    android:id="@+id/order_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical|start"
+                    android:text="admin@gmail.com"
+                    android:textColor="#85a632"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/font_a"
+                    android:textStyle="italic"
+
+                    />
+
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_marginBottom="5dp"
@@ -236,9 +272,8 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:text="Address"
-                    android:maxLines="2"
+                    android:maxLines="3"
                     android:layout_marginBottom="5dp"
-                    android:textAllCaps="true"
                     android:textColor="#85a632"
                     android:fontFamily="@font/font_a"
                     android:textSize="16sp"

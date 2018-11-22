@@ -95,11 +95,10 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Order_Details request = new Order_Details(
-
                         General.currentUser.getName(),
                         General.currentUser.getPhone(),
+                        General.currentUser.getEmail(),
                         et_address.getText().toString(),
-//                        et_phone.getText().toString(),
                         tv_total.getText().toString(),
                         cart
                 );

@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
@@ -28,7 +29,7 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
+                android:layout_height="150dp"
                 android:background="#223654"
                 android:fitsSystemWindows="true"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -63,6 +64,8 @@
                     android:weightSum="4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+
                     android:orientation="horizontal">
                     ////////////////////////////////
 
@@ -210,6 +213,13 @@
             </android.support.design.widget.CollapsingToolbarLayout>
 
 
+
+
+
+
+
+
+
         </android.support.design.widget.AppBarLayout>
 
 
@@ -248,7 +258,7 @@
                             android:fontFamily="@font/font_desc"
                             android:text=" /// Hot Deal every day ///"
                             android:textColor="#FFF"
-                            android:textSize="16sp"
+                            android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.503"
@@ -257,8 +267,8 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="110dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_height="135dp"
+                        android:layout_marginTop="40dp"
                         android:background="@drawable/qc2" />
 
                 </android.support.v7.widget.CardView>
@@ -306,15 +316,14 @@
     </android.support.design.widget.CoordinatorLayout>
 
     //////////////////////////////
-
     <ViewFlipper
         android:id="@+id/viewFlipper"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:padding="5dp">
 
-
     </ViewFlipper>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation1"

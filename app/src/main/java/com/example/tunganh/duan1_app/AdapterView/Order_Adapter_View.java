@@ -12,7 +12,7 @@ import org.w3c.dom.Text;
 
 public class Order_Adapter_View extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView tv_order_id, tv_order_status,tv_order_name, tv_order_phone, tv_order_address;
+    public TextView tv_order_id, tv_order_status,tv_order_name, tv_order_phone, tv_order_address, tv_order_email;
 
     private ItemClickListener itemClickListener;
 
@@ -23,6 +23,7 @@ public class Order_Adapter_View extends RecyclerView.ViewHolder implements View.
         tv_order_status = itemView.findViewById(R.id.order_status);
         tv_order_name = itemView.findViewById(R.id.order_name);
         tv_order_phone = itemView.findViewById(R.id.order_phone);
+        tv_order_email = itemView.findViewById(R.id.order_email);
         tv_order_address = itemView.findViewById(R.id.order_address);
 
         itemView.setOnClickListener(this);

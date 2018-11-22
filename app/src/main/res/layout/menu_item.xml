@@ -4,41 +4,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="340dp">
+    android:layout_marginBottom="10dp"
+    android:layout_height="307dp">
 
     <android.support.v7.widget.CardView
 
         android:layout_width="match_parent"
-        android:layout_height="322dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_height="320dp"
         app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="340dp"
-            android:padding="3dp">
+            android:layout_height="320dp"
+            >
 
 
             <ImageView
                 android:id="@+id/menu_image"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
+                android:layout_height="260dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
                 android:background="@drawable/bg_home"
                 android:scaleType="centerCrop" />
 
 
             <TextView
+                android:layout_marginEnd="0dp"
                 android:id="@+id/menu_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/menu_image"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="0dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="0dp"
                 android:background="#a82e7d8f"
@@ -56,27 +54,27 @@
                 android:layout_alignBottom="@+id/menu_image"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="-4dp"
-                android:layout_marginEnd="0dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="-52dp"
-                android:background="@drawable/btn1"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/buttonlogin"
                 android:fontFamily="@font/font_a"
                 android:gravity="left"
                 android:text="Click to view "
                 android:textColor="#FFF"
                 android:textSize="22sp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2.5dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="18dp"
-                android:background="#000" />
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2.5dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="18dp"-->
+            <!--android:background="#000" />-->
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2.5dp"
+                android:layout_height="4.5dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="10dp"
                 android:background="#000" />

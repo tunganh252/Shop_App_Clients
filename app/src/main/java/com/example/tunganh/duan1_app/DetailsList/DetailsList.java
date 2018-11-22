@@ -129,7 +129,7 @@ public class DetailsList extends AppCompatActivity {
                 Details.class,
                 R.layout.details_item,
                 Details_Adapter_View.class,
-                details_List.orderByChild("Name").equalTo(text.toString())
+                details_List.orderByChild("name").equalTo(text.toString())
 
 
         ) {
@@ -162,7 +162,7 @@ public class DetailsList extends AppCompatActivity {
 
 
     private void loadSuggest() {
-        details_List.orderByChild("MenuId").equalTo(categoryId)
+        details_List.orderByChild("menuId").equalTo(categoryId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -185,7 +185,7 @@ public class DetailsList extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Details, Details_Adapter_View>(Details.class,
                 R.layout.details_item,
                 Details_Adapter_View.class,
-                details_List.orderByChild("MenuId").equalTo(categoryId) /// Get MenuID trong table Details
+                details_List.orderByChild("menuId").equalTo(categoryId) /// Get MenuID trong table Details
         ) {
             @Override
             protected void populateViewHolder(Details_Adapter_View viewHolder, Details model, int position) {

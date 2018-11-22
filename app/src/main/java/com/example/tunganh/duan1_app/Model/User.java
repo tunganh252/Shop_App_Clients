@@ -4,24 +4,18 @@ public class User {
     private String Pass;
     private String Name;
     private String Phone;
-    private String IsStaff;
+    private String Email;
+    private String Admin;
 
     public User() {
     }
 
-    public User(String pass, String name, String phone) {
+    public User(String pass, String name, String phone, String email) {
         Pass = pass;
         Name = name;
         Phone = phone;
-        IsStaff="false";
-    }
-
-    public String getIsStaff() {
-        return IsStaff;
-    }
-
-    public void setIsStaff(String isStaff) {
-        IsStaff = isStaff;
+        Email = email;
+        Admin="false";
     }
 
     public String getPass() {
@@ -46,5 +40,21 @@ public class User {
 
     public void setPhone(String phone) {
         Phone = phone;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getAdmin() {
+        return Admin;
+    }
+
+    public void setAdmin(String admin) {
+        Admin = admin;
     }
 }

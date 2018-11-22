@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_home"
+
     android:layout_height="match_parent"
-    android:background="@drawable/bg_slide"
     tools:context=".DetailsList.DetailsList">
 
     <android.support.v7.widget.RecyclerView
@@ -12,7 +13,7 @@
         android:id="@+id/recycler_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="52dp"
         android:scrollbars="vertical">
 
     </android.support.v7.widget.RecyclerView>
@@ -20,7 +21,8 @@
     <com.mancj.materialsearchbar.MaterialSearchBar
         android:id="@+id/search_bar"
         app:mt_speechMode="false"
-        android:layout_margin="10dp"
+        android:layout_margin="6.5dp"
+        android:paddingBottom="7.5dp"
         app:mt_hint="Enter for search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.mancj.materialsearchbar.MaterialSearchBar>
