@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="215dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="12dp"
     app:cardElevation="4dp"
@@ -14,30 +14,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <View
-        android:layout_width="5.2dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:background="#258a97" />
+        <View
+            android:layout_width="5.2dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="#258a97" />
 
         <View
-        android:layout_width="5.2dp"
-        android:layout_height="match_parent"
+            android:layout_width="5.2dp"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-        android:background="#258a97" />
+            android:background="#258a97" />
 
-        <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="3.5dp"-->
-            <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginTop="1dp"-->
-        <!--android:background="#195b64" />-->
-
-        <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="3dp"-->
-            <!--android:layout_alignParentTop="true"-->
-        <!--android:background="#195b64" />-->
 
 
     </RelativeLayout>
@@ -46,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <View
@@ -109,7 +97,7 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/font_a"
                     android:gravity="center_vertical|start"
-                    android:text="- Status:"
+                    android:text="Status:"
                     android:textAllCaps="true"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -125,9 +113,9 @@
                     android:text="Status"
                     android:fontFamily="@font/font_a"
                     android:textAllCaps="true"
-                    android:textColor="#85a632"
                     android:textSize="16sp"
-                    android:textStyle="italic"
+                    android:textColor="#262b39"
+                    android:textStyle="bold"
 
                     />
 
@@ -146,7 +134,7 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/font_a"
                     android:gravity="center_vertical|start"
-                    android:text="- Name:"
+                    android:text="Name:"
                     android:textAllCaps="true"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -162,9 +150,9 @@
                     android:text="Name"
                     android:fontFamily="@font/font_a"
                     android:textAllCaps="true"
-                    android:textColor="#85a632"
+                    android:textColor="#262b39"
+                    android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textStyle="italic"
 
                     />
 
@@ -184,7 +172,7 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/font_a"
                     android:gravity="center_vertical|start"
-                    android:text="- Phone:"
+                    android:text="Phone:"
                     android:textAllCaps="true"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -199,10 +187,10 @@
                     android:gravity="center_vertical|start"
                     android:text="123456789"
                     android:textAllCaps="true"
-                    android:textColor="#85a632"
+                    android:textColor="#262b39"
+                    android:textStyle="bold"
                     android:textSize="16sp"
                     android:fontFamily="@font/font_a"
-                    android:textStyle="italic"
 
                     />
 
@@ -221,7 +209,7 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/font_a"
                     android:gravity="center_vertical|start"
-                    android:text="- Email:"
+                    android:text="Email:"
                     android:textAllCaps="true"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -235,10 +223,10 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:text="admin@gmail.com"
-                    android:textColor="#85a632"
+                    android:textColor="#262b39"
+                    android:textStyle="bold"
                     android:textSize="16sp"
                     android:fontFamily="@font/font_a"
-                    android:textStyle="italic"
 
                     />
 
@@ -258,7 +246,7 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/font_a"
                     android:gravity="center_vertical|start"
-                    android:text="- Address:"
+                    android:text="Address:"
                     android:textAllCaps="true"
                     android:textSize="16sp"
                     android:textStyle="italic"
@@ -274,10 +262,10 @@
                     android:text="Address"
                     android:maxLines="3"
                     android:layout_marginBottom="5dp"
-                    android:textColor="#85a632"
                     android:fontFamily="@font/font_a"
                     android:textSize="16sp"
-                    android:textStyle="italic"
+                    android:textColor="#262b39"
+                    android:textStyle="bold"
 
                     />
 

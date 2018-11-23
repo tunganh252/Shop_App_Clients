@@ -37,7 +37,21 @@ public class Order_Status extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+
+
+
+        /////////////// IMPORTANT //////////////
+
+        //// ******************* Have Bug, Fix Code late *************
+//        if (getIntent()== null)
+//            loadOrders(General.currentUser.getName());
+//        else
+//            loadOrders(getIntent().getStringExtra("userPhone"));
+        //////////////////////////////////////////////
+
         loadOrders(General.currentUser.getName());
+
+
     }
 
     private void loadOrders(String name) {
@@ -53,7 +67,7 @@ public class Order_Status extends AppCompatActivity {
             protected void populateViewHolder(Order_Adapter_View viewHolder, Order_Details model, int position) {
 
                 viewHolder.tv_order_id.setText(adapter.getRef(position).getKey());
-                viewHolder.tv_order_status.setText(convertCodeToStatus(model.getStatus()));
+                viewHolder.tv_order_status.setText(General.convertCodeToStatus(model.getStatus()));
                 viewHolder.tv_order_name.setText(model.getName());
                 viewHolder.tv_order_phone.setText(model.getPhone());
                 viewHolder.tv_order_email.setText(model.getEmail());
@@ -65,12 +79,5 @@ public class Order_Status extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private String convertCodeToStatus(String status) {
-        if (status.equals("0"))
-            return "Placed";
-        else if (status.equals("1"))
-            return "On my way";
-        else
-        return "Shipped";
-    }
+
 }

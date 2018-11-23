@@ -94,6 +94,8 @@ public class Home_2 extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
+
+
     }
 
     ///// Load quảng cáo

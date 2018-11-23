@@ -4,7 +4,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 android:layout_width="match_parent"
 android:layout_height="@dimen/nav_header_height"
 android:background="#c821212b"
-android:gravity="bottom"
+android:gravity="center_vertical"
 android:orientation="vertical"
 android:paddingLeft="@dimen/activity_horizontal_margin"
 android:paddingTop="@dimen/activity_vertical_margin"
@@ -18,16 +18,33 @@ android:theme="@style/ThemeOverlay.AppCompat.Dark">
         android:layout_height="90dp"
         android:contentDescription="@string/nav_header_desc"
         app:srcCompat="@drawable/icon_app" />
-
-<TextView
-    android:id="@+id/tv_Username"
+<LinearLayout
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/nav_header_vertical_spacing"
-    android:text="Shop Con Cú"
-    android:textSize="20sp"
-    android:textColor="#FFF"
-    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="User:"
+        android:textSize="20sp"
+        android:fontFamily="@font/font_a"
+        android:textColor="#516fb4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    <TextView
+        android:id="@+id/tv_Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="Shop Con Cú"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:textColor="#FFF"
+        android:fontFamily="@font/font_a"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+</LinearLayout>
 
 
 

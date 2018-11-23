@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
@@ -18,7 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class Register extends AppCompatActivity {
-    MaterialEditText et_user, et_fullname,et_pass, et_phone,et_email;
+//    MaterialEditText et_user, et_fullname,et_pass, et_phone,et_email;
+    EditText et_user, et_fullname,et_pass, et_phone,et_email;
     Button bt_dangki;
 
     @Override

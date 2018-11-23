@@ -2,11 +2,14 @@ package com.example.tunganh.duan1_app;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
@@ -20,8 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SigIn extends AppCompatActivity {
-MaterialEditText et_user,et_pass;
-Button bt_dangki,bt_dangnhap;
+//MaterialEditText et_user,et_pass;
+//Button bt_dangki,bt_dangnhap;
+
+ImageView bt_dangnhap;
+EditText et_user,et_pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +36,7 @@ Button bt_dangki,bt_dangnhap;
         et_user=findViewById(R.id.et_user);
         et_pass=findViewById(R.id.et_pass);
         bt_dangnhap=findViewById(R.id.bt_dangnhap);
-        bt_dangki=findViewById(R.id.bt_dangki);
+//        bt_dangki=findViewById(R.id.bt_dangki);
 
 
 
@@ -80,13 +86,13 @@ Button bt_dangki,bt_dangnhap;
             }
         });
 
-        bt_dangki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(SigIn.this,Register.class);
-                startActivity(i);
-                finish();
-            }
-        });
+//        bt_dangki.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i=new Intent(SigIn.this,Register.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
     }
 }

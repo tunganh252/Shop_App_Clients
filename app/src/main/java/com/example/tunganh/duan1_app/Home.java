@@ -28,6 +28,7 @@ import com.example.tunganh.duan1_app.Display.ItemClickListener;
 import com.example.tunganh.duan1_app.General.General;
 import com.example.tunganh.duan1_app.Model.Category;
 import com.example.tunganh.duan1_app.Order_Status.Order_Status;
+import com.example.tunganh.duan1_app.Service.ListenOrder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -111,7 +112,7 @@ public class Home extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /////// Hiển thị tên của
+        /////// Hiển thị tên của User lên (Navigation Drawer)
         View headerView = navigationView.getHeaderView(0);
         tv_Username = headerView.findViewById(R.id.tv_Username);
         tv_Username.setText(General.currentUser.getName());
@@ -123,6 +124,10 @@ public class Home extends AppCompatActivity
         recycler_menu.setLayoutManager(layoutManager);
 
         loadMenu();
+
+////// Register Service
+        Intent service = new Intent(Home.this,ListenOrder.class);
+        startService(service);
 
     }
 
