@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.tunganh.duan1_app.Cart.Cart;
 import com.example.tunganh.duan1_app.Database.Database;
+import com.example.tunganh.duan1_app.General.General;
 import com.example.tunganh.duan1_app.Home;
 import com.example.tunganh.duan1_app.Model.Details;
 import com.example.tunganh.duan1_app.Model.Order;
@@ -55,8 +56,7 @@ public class Details_detail extends AppCompatActivity {
 
         bt_number = findViewById(R.id.number_button);
         bt_cart = findViewById(R.id.bt_cart);
-        bt_buy=findViewById(R.id.bt_buy);
-
+        bt_buy = findViewById(R.id.bt_buy);
 
 
         bt_buy.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +79,7 @@ public class Details_detail extends AppCompatActivity {
         bt_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Details_detail.this,Cart.class);
+                Intent i = new Intent(Details_detail.this, Cart.class);
                 startActivity(i);
 
             }
@@ -101,8 +101,11 @@ public class Details_detail extends AppCompatActivity {
         if (getIntent() != null) {
             detailsId = getIntent().getStringExtra("DetailsId");
             if (!detailsId.isEmpty()) {
-                getDetails_detail(detailsId);
-
+                if (General.isConnectedtoInternet(getBaseContext()))
+                    getDetails_detail(detailsId);
+                else {
+                    Toast.makeText(this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
@@ -119,7 +122,7 @@ public class Details_detail extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                currentDetails =dataSnapshot.getValue(Details.class);
+                currentDetails = dataSnapshot.getValue(Details.class);
 
                 /// Set Image
                 Picasso.with(getBaseContext()).load(currentDetails.getImage())

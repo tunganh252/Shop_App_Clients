@@ -48,41 +48,48 @@ EditText et_user,et_pass;
             @Override
             public void onClick(View v) {
 
-                final ProgressDialog mDialog = new ProgressDialog(SigIn.this);
-                mDialog.setMessage("Please waiting...");
-                mDialog.show();
+                if (General.isConnectedtoInternet(getBaseContext())) {
 
-                table_user.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        // Check User, if not user ---> exit database
-                        if(dataSnapshot.child(et_user.getText().toString()).exists()) {
-                            // Lay thong tin User
+                    final ProgressDialog mDialog = new ProgressDialog(SigIn.this);
+                    mDialog.setMessage("Please waiting...");
+                    mDialog.show();
 
-                            mDialog.dismiss();
-                            User user = dataSnapshot.child(et_user.getText().toString()).getValue(User.class);
-                            if (user.getPass().equals(et_pass.getText().toString())) {
-                                Toast.makeText(SigIn.this, "Log in successfull !!!", Toast.LENGTH_SHORT).show();
-                                Intent i= new Intent(SigIn.this,Home_2.class);
-                                General.currentUser=user;
-                                startActivity(i);
-                                finish();
+                    table_user.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            // Check User, if not user ---> exit database
+                            if (dataSnapshot.child(et_user.getText().toString()).exists()) {
+                                // Lay thong tin User
+
+                                mDialog.dismiss();
+                                User user = dataSnapshot.child(et_user.getText().toString()).getValue(User.class);
+                                if (user.getPass().equals(et_pass.getText().toString())) {
+                                    Toast.makeText(SigIn.this, "Log in successfull !!!", Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(SigIn.this, Home_2.class);
+                                    General.currentUser = user;
+                                    startActivity(i);
+                                    finish();
+                                } else {
+                                    Toast.makeText(SigIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(SigIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SigIn.this, "User is not register !!!", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        else
-                        {
-                            Toast.makeText(SigIn.this, "User is not register !!!", Toast.LENGTH_SHORT).show();
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
                         }
-                    }
+                    });
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                }
+                else {
+                    Toast.makeText(SigIn.this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         });
 

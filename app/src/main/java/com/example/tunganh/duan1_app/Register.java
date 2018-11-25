@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
+import com.example.tunganh.duan1_app.General.General;
 import com.example.tunganh.duan1_app.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,33 +43,41 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final ProgressDialog mDialog = new ProgressDialog(Register.this);
-                mDialog.setMessage("Please waiting...");
-                mDialog.show();
+                if (General.isConnectedtoInternet(getBaseContext())) {
 
-                table_user.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        // Check add them username vao user
-                        if (dataSnapshot.child(et_user.getText().toString()).exists()) {
-                            mDialog.dismiss();
-                            Toast.makeText(Register.this, "Username already register !!!", Toast.LENGTH_SHORT).show();
-                        } else {
-                            mDialog.dismiss();
-                            User user = new User(et_pass.getText().toString(), et_fullname.getText().toString(),et_phone.getText().toString(),et_email.getText().toString());
-                            table_user.child(et_user.getText().toString()).setValue(user);
-                            Toast.makeText(Register.this, "Register successfully !!!", Toast.LENGTH_SHORT).show();
-                            finish();
+                    final ProgressDialog mDialog = new ProgressDialog(Register.this);
+                    mDialog.setMessage("Please waiting...");
+                    mDialog.show();
+
+                    table_user.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            // Check add them username vao user
+                            if (dataSnapshot.child(et_user.getText().toString()).exists()) {
+                                mDialog.dismiss();
+                                Toast.makeText(Register.this, "Username already register !!!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                mDialog.dismiss();
+                                User user = new User(et_pass.getText().toString(), et_fullname.getText().toString(), et_phone.getText().toString(), et_email.getText().toString());
+                                table_user.child(et_user.getText().toString()).setValue(user);
+                                Toast.makeText(Register.this, "Register successfully !!!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
+                        }
+                    });
 
+                }
+                else {
+                    Toast.makeText(Register.this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
+
         });
 
 

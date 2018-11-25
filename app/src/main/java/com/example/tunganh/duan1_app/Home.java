@@ -123,10 +123,14 @@ public class Home extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
         recycler_menu.setLayoutManager(layoutManager);
 
-        loadMenu();
-
+        if (General.isConnectedtoInternet(this))
+            loadMenu();
+        else {
+            Toast.makeText(this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 ////// Register Service
-        Intent service = new Intent(Home.this,ListenOrder.class);
+        Intent service = new Intent(Home.this, ListenOrder.class);
         startService(service);
 
     }

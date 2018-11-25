@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.tunganh.duan1_app.AdapterView.Details_Adapter_View;
 import com.example.tunganh.duan1_app.Display.ItemClickListener;
+import com.example.tunganh.duan1_app.General.General;
 import com.example.tunganh.duan1_app.Model.Details;
 import com.example.tunganh.duan1_app.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -64,7 +65,13 @@ public class DetailsList extends AppCompatActivity {
         if (getIntent() != null)
             categoryId = getIntent().getStringExtra("CategoryId");
         if (!categoryId.isEmpty() && categoryId != null) {
+            if  (General.isConnectedtoInternet(getBaseContext()))
             loadListDetails(categoryId);
+        else
+            {
+                Toast.makeText(this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+            return;
+            }
         }
 
         ///////////////////////////////////////////////////
