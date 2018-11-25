@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,33 +23,47 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import io.paperdb.Paper;
+
 public class SigIn extends AppCompatActivity {
 //MaterialEditText et_user,et_pass;
 //Button bt_dangki,bt_dangnhap;
 
-ImageView bt_dangnhap;
-EditText et_user,et_pass;
+    ImageView bt_dangnhap;
+    EditText et_user, et_pass;
+    CheckBox checkRemember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sig_in);
-        et_user=findViewById(R.id.et_user);
-        et_pass=findViewById(R.id.et_pass);
-        bt_dangnhap=findViewById(R.id.bt_dangnhap);
+        et_user = findViewById(R.id.et_user);
+        et_pass = findViewById(R.id.et_pass);
+        bt_dangnhap = findViewById(R.id.bt_dangnhap);
+        checkRemember = findViewById(R.id.checkRemember);
 //        bt_dangki=findViewById(R.id.bt_dangki);
 
 
+        ///// Init paper
+        Paper.init(this);
+
 
         /// Firebase
-        final FirebaseDatabase database =FirebaseDatabase.getInstance();
-        final DatabaseReference table_user=database.getReference("User");
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference table_user = database.getReference("User");
 
         bt_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (General.isConnectedtoInternet(getBaseContext())) {
+
+                    ////// Save user + password ---> Remember me
+
+                    if (checkRemember.isChecked()) {
+                        Paper.book().write(General.USER_KEY, et_user.getText().toString());
+                        Paper.book().write(General.PASS_KEY, et_pass.getText().toString());
+                    }
 
 
                     final ProgressDialog mDialog = new ProgressDialog(SigIn.this);
@@ -85,8 +100,7 @@ EditText et_user,et_pass;
                         }
                     });
 
-                }
-                else {
+                } else {
                     Toast.makeText(SigIn.this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
                     return;
                 }

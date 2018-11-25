@@ -111,7 +111,7 @@ public class Cart extends AppCompatActivity {
                         .setValue(request);
                 ///// Xóa Cart
                 new Database(getBaseContext()).cleanCart();
-                Toast.makeText(Cart.this, "Thanks you !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, "Thanks for your order! \n      Have a nice day.", Toast.LENGTH_LONG).show();
                 finish();
             }
         });

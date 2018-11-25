@@ -7,9 +7,9 @@
         android:title="Home Page"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_cart"
         android:orderInCategory="100"
-        android:title="Setting"
+        android:title="You Cart"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_logout"

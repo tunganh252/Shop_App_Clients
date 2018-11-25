@@ -72,7 +72,7 @@ public class Details_detail extends AppCompatActivity {
 
                 ));
 
-                Toast.makeText(Details_detail.this, "Add to Cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Details_detail.this, "Added to Cart !!!", Toast.LENGTH_LONG).show();
             }
         });
 

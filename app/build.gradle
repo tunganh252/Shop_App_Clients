@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     implementation 'com.github.mancj:MaterialSearchBar:0.8.1'
     implementation 'br.com.simplepass:loading-button-android:1.14.0'
+    implementation 'io.paperdb:paperdb:2.6'
 
 }
 apply plugin: 'com.google.gms.google-services'
