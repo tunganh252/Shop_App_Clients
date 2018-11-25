@@ -50,8 +50,9 @@ public class ListenOrder extends Service implements ChildEventListener {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        ////// Turn on/off notification
 
-//        order_details.addChildEventListener(this); Turn Off Notification
+        order_details.addChildEventListener(this);
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -70,9 +71,9 @@ public class ListenOrder extends Service implements ChildEventListener {
     /////////////////////////////////////
     private void showNotification(String key, Order_Details order_details) {
 
-        Intent i = new Intent(getBaseContext(), Order_Status.class);
-        i.putExtra("userPhone", order_details.getName());
-        PendingIntent contentIntent = PendingIntent.getActivity(getBaseContext(), 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(getBaseContext(), Order_Status.class);
+        intent.putExtra("userName", order_details.getName());
+        PendingIntent contentIntent = PendingIntent.getActivity(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getBaseContext());
 
