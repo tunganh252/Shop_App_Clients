@@ -20,7 +20,7 @@
 
 # Kéo dự án 
 
-> Command line: git clone https://github.com/tunganh252/Project_Shop_App.git
+> Command line: git clone https://github.com/tunganh252/Shop_App_Clients.git
 
 > Hoặc: Download Zip, extract and run
 
@@ -41,14 +41,21 @@
 - Image: Google
 - Icon: Material Icon
 ```
-- implementation 'com.google.firebase:firebase-core:16.0.1'
-- implementation 'com.google.firebase:firebase-database:16.0.1'
-- implementation 'com.rengwuxian.materialedittext:library:2.1.4'
-- implementation 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
-- implementation 'com.android.support:cardview-v7:28.0.0'
-- implementation 'com.android.support:recyclerview-v7:28.0.0'
-- implementation 'com.squareup.picasso:picasso:2.5.2'
-- implementation 'com.firebaseui:firebase-ui-database:1.2.0'
+    //add library
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.firebaseui:firebase-ui-database:1.2.0'
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.1'
+    implementation 'br.com.simplepass:loading-button-android:1.14.0'
+    implementation 'io.paperdb:paperdb:2.6'
 ```
 **Nguồn: Github.**
 
