@@ -6,5 +6,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="title_activity_home_2">Home Page</string>
+    <string name="forgot_password"><u> Forgot Password ? </u> </string>
     <string name="desc">“You can’t connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future.”</string>
 </resources>

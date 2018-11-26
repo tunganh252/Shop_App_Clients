@@ -66,6 +66,7 @@ public class ListenOrder extends Service implements ChildEventListener {
     public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
         Order_Details order_details = dataSnapshot.getValue(Order_Details.class);
         showNotification(dataSnapshot.getKey(), order_details);
+
     }
 
     /////////////////////////////////////
@@ -80,9 +81,8 @@ public class ListenOrder extends Service implements ChildEventListener {
         builder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
-                .setTicker("NTA DEV")
-                .setContentInfo("Your order was update")
-                .setContentText("Order #" + key + ": " + General.convertCodeToStatus(order_details.getStatus()))
+                .setContentTitle("Order Status !!!")
+                .setContentText("#" + key + ": " + General.convertCodeToStatus(order_details.getStatus()).toUpperCase())
                 .setContentIntent(contentIntent)
                 .setContentInfo("Info")
                 .setSmallIcon(R.drawable.ic_notifications_black_24dp);

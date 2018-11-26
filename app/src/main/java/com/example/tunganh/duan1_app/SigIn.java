@@ -1,16 +1,20 @@
 package com.example.tunganh.duan1_app;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
@@ -31,7 +35,11 @@ public class SigIn extends AppCompatActivity {
 
     ImageView bt_dangnhap;
     EditText et_user, et_pass;
+    TextView tv_forgot, tv_dangki;
     CheckBox checkRemember;
+
+    FirebaseDatabase database;
+    DatabaseReference table_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +49,8 @@ public class SigIn extends AppCompatActivity {
         et_pass = findViewById(R.id.et_pass);
         bt_dangnhap = findViewById(R.id.bt_dangnhap);
         checkRemember = findViewById(R.id.checkRemember);
-//        bt_dangki=findViewById(R.id.bt_dangki);
+        tv_forgot = findViewById(R.id.tv_forgot);
+        tv_dangki = findViewById(R.id.tv_dangki);
 
 
         ///// Init paper
@@ -49,8 +58,8 @@ public class SigIn extends AppCompatActivity {
 
 
         /// Firebase
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference("User");
+        database = FirebaseDatabase.getInstance();
+        table_user = database.getReference("User");
 
         bt_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,13 +116,90 @@ public class SigIn extends AppCompatActivity {
             }
         });
 
-//        bt_dangki.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i=new Intent(SigIn.this,Register.class);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
+
+        tv_forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showForgotDialog();
+            }
+        });
+
+        tv_dangki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SigIn.this, Register.class);
+                startActivity(i);
+                finish();
+            }
+        });
+    }
+
+    private void showForgotDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Forgot Password");
+        builder.setMessage("Enter your phone & email");
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View forgot_view = inflater.inflate(R.layout.forgot_password, null);
+
+        builder.setView(forgot_view);
+        builder.setIcon(R.drawable.ic_security);
+
+        final EditText et_User_forgot = (EditText) forgot_view.findViewById(R.id.et_User_forgot);
+        final EditText et_Email_forgot = (EditText) forgot_view.findViewById(R.id.et_Email_forgot);
+        final EditText et_Phone_forgot = (EditText) forgot_view.findViewById(R.id.et_Phone_forgot);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                table_user.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.child(et_User_forgot.getText().toString()).exists()) {
+                            // Lay thong tin User
+                            User user = dataSnapshot.child(et_User_forgot.getText().toString()).getValue(User.class);
+
+                            if (user.getPhone().equals(et_Phone_forgot.getText().toString())) {
+
+                                if (user.getEmail().equals(et_Email_forgot.getText().toString())) {
+                                    Toast.makeText(SigIn.this, "Your Password: " + user.getPass(), Toast.LENGTH_LONG).show();
+                                } else
+                                    Toast.makeText(SigIn.this, "Wrong Email !!!", Toast.LENGTH_SHORT).show();
+                            }else
+                                Toast.makeText(SigIn.this, "Wrong Phone number !!!", Toast.LENGTH_SHORT).show();
+                        }else
+                            Toast.makeText(SigIn.this, "Wrong Username !!!", Toast.LENGTH_SHORT).show();
+
+
+//                        User user = dataSnapshot.child(et_Phone_forgot.getText().toString())
+//                                .getValue(User.class);
+//
+//                        Toast.makeText(SigIn.this, "con cặc", Toast.LENGTH_SHORT).show();
+//                        if (user.getEmail().equals(et_Email_forgot.getText().toString()))
+//                            Toast.makeText(SigIn.this, "Your password: " + user.getPass(), Toast.LENGTH_LONG).show();
+//                        else
+//                            Toast.makeText(SigIn.this, "Invalid information !!!", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+
+        builder.show();
+
+
     }
 }

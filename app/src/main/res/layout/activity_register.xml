@@ -156,6 +156,7 @@
                     android:layout_toRightOf="@+id/imgView_repasswordIcon"
                     android:background="#FFF"
                     android:hint="Phone"
+                    android:maxLength="11"
                     android:inputType="number"
                     android:paddingLeft="20dp"
                     android:textSize="15sp" />

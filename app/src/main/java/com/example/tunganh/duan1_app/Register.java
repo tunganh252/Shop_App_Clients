@@ -1,6 +1,7 @@
 package com.example.tunganh.duan1_app;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,10 +59,16 @@ public class Register extends AppCompatActivity {
                                 Toast.makeText(Register.this, "Username already register !!!", Toast.LENGTH_SHORT).show();
                             } else {
                                 mDialog.dismiss();
-                                User user = new User(et_pass.getText().toString(), et_fullname.getText().toString(), et_phone.getText().toString(), et_email.getText().toString());
+                                User user = new User(et_pass.getText().toString(),
+                                        et_fullname.getText().toString(),
+                                        et_phone.getText().toString(),
+                                        et_email.getText().toString());
                                 table_user.child(et_user.getText().toString()).setValue(user);
                                 Toast.makeText(Register.this, "Register successfully !!!", Toast.LENGTH_SHORT).show();
                                 finish();
+
+                                Intent i = new Intent(Register.this,SigIn.class);
+                                startActivity(i);
                             }
                         }
 

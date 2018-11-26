@@ -53,6 +53,7 @@ public class Order_Status extends AppCompatActivity {
         /////////////// IMPORTANT //////////////
 
         // ******************* Have Bug, Fix Code late *************
+
         if (getIntent() == null)
             loadOrders(General.currentUser.getName());
         else
