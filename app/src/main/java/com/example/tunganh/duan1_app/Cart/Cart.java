@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -79,20 +80,15 @@ public class Cart extends AppCompatActivity {
         alertDialog.setTitle("One more step !!!");
         alertDialog.setMessage("Enter your address: ");
 
-        final EditText et_address = new EditText(Cart.this);
-//        final EditText et_phone = new EditText(Cart.this);
 
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-        );
-        et_address.setLayoutParams(lp);
-        alertDialog.setView(et_address);
+        LayoutInflater inflater=this.getLayoutInflater();
+        View order_address_comment = inflater.inflate(R.layout.order_address_comment,null);
+
+        final EditText et_address=order_address_comment.findViewById(R.id.et_address);
+        final EditText et_comment=order_address_comment.findViewById(R.id.et_comment);
+
+        alertDialog.setView(order_address_comment);
         alertDialog.setIcon(R.drawable.ic_mall);
-
-//        et_phone.setLayoutParams(lp);
-//        alertDialog.setView(et_phone);
-//        alertDialog.setIcon(R.drawable.ic_phone);
 
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
@@ -103,6 +99,7 @@ public class Cart extends AppCompatActivity {
                         General.currentUser.getEmail(),
                         et_address.getText().toString(),
                         tv_total.getText().toString(),
+                        et_comment.getText().toString(),
                         cart
                 );
                 ///// Thêm chi tiết mua hàng vào Firebase ///// Dùng System.CurrentMilli to key

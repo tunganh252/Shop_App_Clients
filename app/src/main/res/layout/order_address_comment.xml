@@ -1,6 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="12dp"
+    app:cardElevation="4dp"
+    android:background="#FFF"
+    app:cardCornerRadius="5dp"
+    android:scrollbars="vertical"
+    android:elevation="20dp">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <View
+            android:layout_width="5.2dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#258a97" />
+
+        <View
+            android:layout_width="5.2dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#258a97" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/et_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Comment"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<View-->
+            <!--android:layout_width="7dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_height="22dp"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:background="#10336c" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Code Bill:"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/order_id"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:textColor="#37428b"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="#9999999"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="bold" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Status:"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="italic"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/order_status"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Status"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="#262b39"-->
+                    <!--android:textStyle="bold"-->
+
+                    <!--/>-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Name:"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="italic"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/order_name"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Name"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textColor="#262b39"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="16sp"-->
+
+                    <!--/>-->
+
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Phone:"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="italic"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/order_phone"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="123456789"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textColor="#262b39"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+
+                    <!--/>-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Email:"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="italic"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/order_email"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="admin@gmail.com"-->
+                    <!--android:textColor="#262b39"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+
+                    <!--/>-->
+
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Address:"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textStyle="italic"-->
+
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/order_address"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:gravity="center_vertical|start"-->
+                    <!--android:text="Address"-->
+                    <!--android:maxLines="3"-->
+                    <!--android:layout_marginBottom="5dp"-->
+                    <!--android:fontFamily="@font/font_a"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="#262b39"-->
+                    <!--android:textStyle="bold"-->
+
+                    <!--/>-->
+
+
+            <!--</LinearLayout>-->
+
+
+        <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+</android.support.v7.widget.CardView>

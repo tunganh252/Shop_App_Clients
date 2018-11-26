@@ -9,20 +9,30 @@ public class Order_Details {
     private String email;
     private String address;
     private String total;
+    private String comment;
     private String status; ///// trạng thái khi mua hàng
     private List<Order> details; //// Danh sách hàng đã mua
 
     public Order_Details() {
     }
 
-    public Order_Details(String name, String phone, String email, String address, String total, List<Order> details) {
+    public Order_Details(String name, String phone, String email, String address, String total, String comment, List<Order> details) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.total = total;
+        this.comment = comment;
         this.details = details;
         this.status = "0";////// default 0 ---> 0: Order  1: Shipping   2: Shipped
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public String getName() {
