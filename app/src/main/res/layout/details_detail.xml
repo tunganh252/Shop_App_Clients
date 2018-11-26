@@ -74,7 +74,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:orientation="vertical">
 
                     <TextView
@@ -90,73 +89,73 @@
                         android:textSize="32sp"
                         android:textStyle="bold" />
 
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:isIndicator="true"
+                        android:max="5"
+                        android:rating="0" />
+
                     <LinearLayout
                         android:id="@+id/layout_price"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="30dp"
-                            android:layout_height="42dp"
-                            android:layout_gravity="bottom"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="top"
                             android:layout_weight="1"
                             app:srcCompat="@drawable/ic_money_24dp" />
 
                         <TextView
                             android:id="@+id/details_price"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="9"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
                             android:text="1,000"
                             android:textColor="@color/colorPrimary"
                             android:textSize="30sp"
                             android:textStyle="bold" />
 
-                        <ImageView
-                            android:layout_width="5dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="3"
-                            app:srcCompat="@drawable/ic_favorite" />
 
-                        <ImageView
-                            android:layout_width="5dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="3"
-                            app:srcCompat="@drawable/ic_menu_share" />
+                        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                            android:id="@+id/number_button"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            app:backGroundColor="#A9d440"
+                            app:finalNumber="20"
+                            app:initialNumber="1"
+                            app:textSize="13sp">
 
+                        </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
                     </LinearLayout>
 
-                    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-                        android:id="@+id/number_button"
-                        android:layout_width="120dp"
-                        android:layout_height="42dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="20dp"
-                        app:backGroundColor="#A9d440"
-                        app:finalNumber="20"
-                        app:initialNumber="1"
-                        app:textSize="10sp">
-
-                    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
 
                     <Button
                         android:id="@+id/bt_buy"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:layout_alignParentTop="true"
                         android:layout_gravity="right"
                         android:layout_marginLeft="12dp"
+                        android:layout_marginTop="35dp"
                         android:layout_marginRight="12dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/buttonsingup"
                         android:text="Add to Cart"
-                        android:textColor="#fff" />
+                        android:textColor="#fff"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -200,93 +199,87 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="-5dp"
+                android:layout_marginRight="10dp"
                 app:cardElevation="15dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/font_a"
-                    android:inputType="none"
-                    android:lineSpacingMultiplier="1.5"
-                    android:padding="12dp"
-                    android:text="Comment and Rate:"
-                    android:textColor="#000"
-                    android:textSize="18sp"
-                    android:textStyle="italic" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_user_24dp" />
+                            android:background="@drawable/user_rating"
+                            android:foregroundGravity="center" />
 
-                        <EditText
+                        <TextView
+                            android:id="@+id/tv_nameRating"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Comment here..."
-                            android:inputType="textMultiLine"
-                            android:lines="3"
-                            android:maxLines="3"
+                            android:fontFamily="@font/font_a"
+                            android:gravity="center"
+                            android:text="Name user"
                             android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Rating Product"
+                            android:textSize="20sp"
+                            android:textStyle="italic" />
+
+                        <LinearLayout
+                            android:id="@+id/bt_rating"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="30dp"
+                           >
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:src="@drawable/rating" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:text="Feedback here...."
+                                android:textSize="20sp"
+                                android:textStyle="italic" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginRight="45dp"
+                                android:background="#6e9e9c9c" />
+
+                        </LinearLayout>
 
 
                     </LinearLayout>
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="30dp">
 
-                        <CheckBox
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="30dp"
-                            android:text="Good product"
-                            android:textSize="18sp" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="27dp"
-                            android:background="@drawable/buttonsingup"
-                            android:fontFamily="@font/font_a"
-                            android:foregroundGravity="right"
-                            android:text="Send"
-                            android:textColor="#FFF" />
-
-
-                    </RelativeLayout>
                 </LinearLayout>
 
 
@@ -308,5 +301,6 @@
         app:layout_anchorGravity="bottom|right|end"
         app:pressedTranslationZ="12dp"
         app:useCompatPadding="true" />
+
 
 </android.support.design.widget.CoordinatorLayout>

@@ -31,4 +31,14 @@
 
     </style>
 
+
+    ///// Rating ////
+    <style name="RatingDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#FFF</item>
+        <item name="android:buttonBarPositiveButtonStyle">@color/colorPrimary</item>
+        <item name="android:textStyle">normal</item>
+
+    </style>
+
+
 </resources>

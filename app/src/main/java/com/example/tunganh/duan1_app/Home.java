@@ -114,10 +114,10 @@ public class Home extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        /////// Hiển thị tên của User lên (Navigation Drawer)
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        /////// Hiển thị tên của User lên (Navigation Drawer)
         View headerView = navigationView.getHeaderView(0);
         tv_Username = headerView.findViewById(R.id.tv_Username);
         tv_Username.setText(General.currentUser.getName());

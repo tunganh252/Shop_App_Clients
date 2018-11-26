@@ -6,5 +6,24 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="RatingDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#FFF</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/RatingDialogButtonStyle.Style</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/RatingDialogButtonStyle.Style</item>
+
+    </style>
+
+    <style name="RatingDialogButtonStyle.Style" parent="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">#A9d440</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+
+    </style>
+
+    <style name="RatingDialogFadeAnim">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+
+    </style>
+
 
 </resources>
