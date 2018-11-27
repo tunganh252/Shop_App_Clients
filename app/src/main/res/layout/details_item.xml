@@ -10,13 +10,14 @@
     <android.support.v7.widget.CardView
 
         android:layout_width="match_parent"
-        android:layout_height="305dp"
+        android:layout_height="290dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="305dp"
-           >
+            android:layout_height="305dp">
 
 
             <ImageView
@@ -36,30 +37,31 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginBottom="3dp"
                 android:background="#d407d16c"
                 android:fontFamily="@font/font_a"
                 android:gravity="center"
-                android:paddingBottom="8dp"
+                android:padding="8dp"
                 android:text="Name"
                 android:textColor="#FFF"
-                android:textSize="23sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="45dp"
                 android:layout_alignBottom="@+id/details_image"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="-4dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="-56dp"
+                android:padding="10dp"
+                android:layout_marginBottom="-42dp"
                 android:background="@drawable/buttonsingup"
                 android:fontFamily="@font/font_a"
-                android:gravity="left"
+                android:gravity="top"
                 android:text="Click to buy"
                 android:textColor="#FFF"
-                android:textSize="22sp" />
+                android:textSize="16sp" />
 
             <View
                 android:layout_width="5dp"
@@ -77,28 +79,57 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
                 tools:layout_editor_absoluteX="5dp"
                 tools:layout_editor_absoluteY="5dp">
 
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="168dp"
+                    android:layout_marginTop="254dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_buy" />
+
+                <ImageView
+                    android:id="@+id/favo"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="260dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="250dp"
+                    android:layout_marginEnd="76dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/et_pass"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_buy" />
+                    app:srcCompat="@drawable/ic_border_heart" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="252dp"
+                    android:layout_marginEnd="16dp"
+                    android:tint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/et_pass"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_menu_share" />
             </android.support.constraint.ConstraintLayout>
 
 

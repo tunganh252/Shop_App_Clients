@@ -13,7 +13,7 @@ public class Details_Adapter_View extends RecyclerView.ViewHolder implements Vie
 
 
     public TextView details_name;
-    public ImageView details_image;
+    public ImageView details_image,fav_image;
 
     private ItemClickListener itemClickListener;
 
@@ -27,6 +27,7 @@ public class Details_Adapter_View extends RecyclerView.ViewHolder implements Vie
 
         details_name=itemView.findViewById(R.id.details_name);
         details_image=itemView.findViewById(R.id.details_image);
+        fav_image=itemView.findViewById(R.id.favo);
         itemView.setOnClickListener(this);
     }
 

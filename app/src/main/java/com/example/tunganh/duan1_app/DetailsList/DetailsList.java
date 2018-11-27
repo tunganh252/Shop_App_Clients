@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.tunganh.duan1_app.AdapterView.Details_Adapter_View;
+import com.example.tunganh.duan1_app.Database.Database;
 import com.example.tunganh.duan1_app.Display.ItemClickListener;
 import com.example.tunganh.duan1_app.General.General;
 import com.example.tunganh.duan1_app.Model.Details;
@@ -38,6 +39,10 @@ public class DetailsList extends AppCompatActivity {
 
     String categoryId = "";
 
+    ///// Favorite
+    Database localDB;
+
+
     FirebaseRecyclerAdapter<Details, Details_Adapter_View> adapter;
 
     //// function search_bar
@@ -55,6 +60,9 @@ public class DetailsList extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         details_List = database.getReference("Details");
 
+        // Local DB
+        localDB = new Database(this);
+
         recyclerView = findViewById(R.id.recycler_details);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -65,12 +73,11 @@ public class DetailsList extends AppCompatActivity {
         if (getIntent() != null)
             categoryId = getIntent().getStringExtra("CategoryId");
         if (!categoryId.isEmpty() && categoryId != null) {
-            if  (General.isConnectedtoInternet(getBaseContext()))
-            loadListDetails(categoryId);
-        else
-            {
+            if (General.isConnectedtoInternet(getBaseContext()))
+                loadListDetails(categoryId);
+            else {
                 Toast.makeText(this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
-            return;
+                return;
             }
         }
 
@@ -112,7 +119,7 @@ public class DetailsList extends AppCompatActivity {
             @Override
             public void onSearchStateChanged(boolean enabled) {
 
-                if (!enabled){
+                if (!enabled) {
                     recyclerView.setAdapter(adapter);
                 }
             }
@@ -157,15 +164,15 @@ public class DetailsList extends AppCompatActivity {
                         i.putExtra("DetailsId", searchAdapter.getRef(position).getKey()); // Send Details id sang activity mới
                         startActivity(i);
 
-                    };
+                    }
+
+                    ;
                 });
             }
         };
         recyclerView.setAdapter(searchAdapter); /////  adpter cho recycler view ---> search result
 
     }
-
-
 
 
     private void loadSuggest() {
@@ -195,10 +202,31 @@ public class DetailsList extends AppCompatActivity {
                 details_List.orderByChild("menuId").equalTo(categoryId) /// Get MenuID trong table Details
         ) {
             @Override
-            protected void populateViewHolder(Details_Adapter_View viewHolder, Details model, int position) {
+            protected void populateViewHolder(final Details_Adapter_View viewHolder, final Details model, final int position) {
                 viewHolder.details_name.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.details_image);
+
+                //// Add favorite
+                if (localDB.isFavorite(adapter.getRef(position).getKey()))
+                    viewHolder.fav_image.setImageResource(R.drawable.heart);
+                //// Click to change favorite (Thả tim.... :)))
+                viewHolder.fav_image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!localDB.isFavorite(adapter.getRef(position).getKey())) {
+                            localDB.addToFavorites(adapter.getRef(position).getKey());
+                            viewHolder.fav_image.setImageResource(R.drawable.heart);
+//                            Toast.makeText(DetailsList.this, "" + model.getName() + "Add Favorite !", Toast.LENGTH_SHORT).show();
+                        } else {
+                            localDB.removeFromFavorites(adapter.getRef(position).getKey());
+                            viewHolder.fav_image.setImageResource(R.drawable.ic_border_heart);
+//                            Toast.makeText(DetailsList.this, "" + model.getName() + "Remove Favorite !", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
 
                 final Details local = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {

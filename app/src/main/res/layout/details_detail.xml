@@ -11,7 +11,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_margin="10dp"
         android:background="#FFF"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -19,7 +19,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:collapsedTitleTextAppearance="@android:color/transparent"
             app:contentScrim="#0e0d0e"
@@ -60,7 +60,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
@@ -94,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="8dp"
                         android:isIndicator="true"
                         android:max="5"
                         android:rating="0" />
@@ -149,12 +149,32 @@
                         android:layout_alignParentTop="true"
                         android:layout_gravity="right"
                         android:layout_marginLeft="12dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginRight="12dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/buttonsingup"
                         android:text="Add to Cart"
                         android:textColor="#fff"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/font_a"
+                        android:lineSpacingMultiplier="1.5"
+                        android:padding="12dp"
+                        android:text="Description:"
+                        android:textColor="#000"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/details_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.5"
+                        android:padding="12dp"
+                        android:text="Description"
+                        android:textColor="#000"
                         android:textSize="18sp" />
 
 
@@ -171,36 +191,17 @@
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
-                <TextView
-                    android:id="@+id/details_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:lineSpacingMultiplier="1.5"
-                    android:padding="12dp"
-                    android:text="Description"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/font_a"
-                    android:lineSpacingMultiplier="1.5"
-                    android:padding="12dp"
-                    android:text="Description:"
-                    android:textColor="#000"
-                    android:textSize="24sp" />
 
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="-5dp"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="50dp"
                 android:layout_marginRight="10dp"
                 app:cardElevation="15dp">
 
@@ -208,13 +209,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <ImageView
@@ -232,6 +233,8 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/font_a"
                             android:gravity="center"
+                            android:layout_marginTop="7dp"
+                            android:layout_marginBottom="5dp"
                             android:text="Name user"
                             android:textSize="24sp" />
 
@@ -246,33 +249,27 @@
                         <LinearLayout
                             android:id="@+id/bt_rating"
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="30dp"
                            >
 
                             <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="50dp"
                                 android:src="@drawable/rating" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="20dp"
+                                android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:gravity="center"
                                 android:text="Feedback here...."
                                 android:textSize="20sp"
                                 android:textStyle="italic" />
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginLeft="45dp"
-                                android:layout_marginRight="45dp"
-                                android:background="#6e9e9c9c" />
 
                         </LinearLayout>
 

@@ -58,54 +58,40 @@ public class Database extends SQLiteAssetHelper {
 
     }
 
-//    public List<Order> getCarts() {
-//
-//        SQLiteDatabase db = getReadableDatabase();
-//        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-//
-//        String[] sqlSelect = {"ProductId", "ProductName", "Quantity", "Price", "Discount"};
-//        String sqlTable = "OrderDetail";
-//
-//        qb.setTables(sqlTable);
-//        Cursor c = qb.query(db, sqlSelect, null, null, null, null, null);
-//
-//        final List<Order> result = new ArrayList<>();
-//        if (c.moveToFirst()) {
-//            do {
-//                result.add(new Order(c.getString(c.getColumnIndex("ProductId")),
-//                        c.getString(c.getColumnIndex("ProductName")),
-//                        c.getString(c.getColumnIndex("Quantity")),
-//                        c.getString(c.getColumnIndex("Price")),
-//                        c.getString(c.getColumnIndex("Discount"))
-//                ));
-//            } while (c.moveToNext());
-//
-//        }
-//        return result;
-//
-//    }
 
-//    public void addToCart(Order order) {
-//
-//        SQLiteDatabase db = getReadableDatabase();
-//        String query = String.format("INSERT INTO OrderDetail(ProductId,ProductName,Quantity,Price,Discount) VALUES ('%s','%s','%s','%s','%s');",
-//                order.getProductId(),
-//                order.getProductName(),
-//                order.getQuantity(),
-//                order.getPrice(),
-//                order.getDiscount());
-//        db.execSQL(query);
-//
-//    }
 
     public void cleanCart() {
 
-//        SQLiteDatabase db = getReadableDatabase();
-//        String query = String.format("DELETE FORM OrderDetail");
-//        db.execSQL(query);
 
         SQLiteDatabase db = getReadableDatabase();
         String query = String.format("DELETE FROM OrderDetail");
         db.execSQL(query);
+    }
+
+
+    ////////////////////////////////////////////////////////////
+    ////////// Favorite
+
+    public void addToFavorites(String detailsId){
+        SQLiteDatabase db =getReadableDatabase();
+        String query=String.format("INSERT INTO Favorites (DetailsId) VALUES('%s');",detailsId);
+        db.execSQL(query);
+    }
+    public void removeFromFavorites(String detailsId){
+        SQLiteDatabase db =getReadableDatabase();
+        String query=String.format("DELETE FROM Favorites WHERE DetailsId='%s';",detailsId);
+        db.execSQL(query);
+    }
+    public boolean isFavorite(String detailsId){
+        SQLiteDatabase db =getReadableDatabase();
+        String query=String.format("SELECT * FROM Favorites WHERE DetailsId='%s';",detailsId);
+        Cursor cursor=db.rawQuery(query,null);
+        if (cursor.getCount()<=0)
+        {
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
     }
 }

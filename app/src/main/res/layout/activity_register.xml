@@ -27,7 +27,7 @@
                 android:id="@+id/linearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:background="@color/colorPrimary"
+                android:background="#209ac7"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -58,9 +58,9 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/linearLayout1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:rotation="45"
-                android:src="@drawable/square" />
+                android:layout_marginTop="-15dp"
+                android:background="@drawable/ic_twitter"
+                 />
 
             <RelativeLayout
                 android:id="@+id/relativeLayout1"
@@ -75,7 +75,7 @@
                     android:id="@+id/imgView_userIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#209ac7"
                     android:padding="8dp"
                     app:srcCompat="@drawable/ic_user_24dp"
                     android:tint="@color/white" />
@@ -109,7 +109,7 @@
                     android:id="@+id/imgView_passwordIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#209ac7"
                     android:padding="8dp"
                     app:srcCompat="@drawable/ic_lock_outline_black_24dp"
                     android:tint="@color/white" />
@@ -142,7 +142,7 @@
                     android:id="@+id/imgView_repasswordIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#209ac7"
                     android:padding="8dp"
                     app:srcCompat="@drawable/ic_phone"
                     android:tint="@color/white" />
@@ -176,7 +176,7 @@
                     android:id="@+id/aaa"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#209ac7"
                     android:padding="8dp"
                     app:srcCompat="@drawable/ic_person"
                     android:tint="@color/white" />
@@ -209,7 +209,7 @@
                     android:id="@+id/imgView_emailIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorPrimary"
+                    android:background="#209ac7"
                     android:padding="8dp"
                     app:srcCompat="@drawable/ic_mail_outline_black_24dp"
                     android:tint="@color/white" />
@@ -236,7 +236,7 @@
                 android:layout_below="@id/relativeLayout4"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif"
                 android:text="I agree to the Terms of Service"
                 android:textColor="#000" />
@@ -248,11 +248,12 @@
                 android:layout_below="@+id/chkBox1"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
-                android:background="@color/colorPrimary"
+                android:background="#209ac7"
                 android:fontFamily="sans-serif-medium"
                 android:text="SIGN UP"
+                android:textSize="21sp"
                 android:textColor="@color/white" />
 
 

@@ -102,11 +102,12 @@ public class Home_2 extends AppCompatActivity {
     private void ActionViewFlipper() {
 
         ArrayList<String> ArrayQuangCao = new ArrayList<>();
-        ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/04_11_2018_13_12_27_A7-P2-800-300.png");
-        ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/06_11_2018_15_58_48_Big-Oppo-800-300.png");
-        ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/31_10_2018_17_46_35_Note9-T11-800-300.png");
+        ArrayQuangCao.add("https://images.foody.vn/biz_banner/foody-675x355-gdn2-636707069138735788.jpg");
+        ArrayQuangCao.add("https://media3.scdn.vn/img2/2018/11_12/KtSJMu.png");
+        ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/22_11_2018_09_21_16_Nokia51-Ver4-800-300.png");
+        ArrayQuangCao.add("https://media3.scdn.vn/img2/2018/11_9/MlPvKI.jpg");
         ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/14_11_2018_16_05_26_mi8-800-300.png");
-        ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/15_10_2018_10_41_10_phu-kien-giam-soc-800-300.png");
+        ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/04_11_2018_13_12_27_A7-P2-800-300.png");
         ArrayQuangCao.add("https://cdn.tgdd.vn/qcao/12_11_2018_17_01_49_iphone-new-800-300.png");
         for (int i = 0; i < ArrayQuangCao.size(); i++) {
             ImageView imageView = new ImageView(getApplicationContext());
@@ -115,7 +116,7 @@ public class Home_2 extends AppCompatActivity {
             viewFlipper.addView(imageView);
 
         }
-        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setFlipInterval(3500);
         viewFlipper.setAutoStart(true);
         Animation animation_slide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_quangcao);
         Animation animation_slide2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_quangcao_2);
