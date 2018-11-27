@@ -41,4 +41,26 @@
     </style>
 
 
+    ///////////////////////////////////////////// Profile User /////////////////////////////////////////
+    <!-- Dark/Night theme. -->
+
+    <style name="darktheam" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="backGroundColor">@color/colorPrimaryDark1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+        <!--<item name="textNameColor">#ffff</item>-->
+        <!--<item name="textTagColor">#838282</item>-->
+        <!--<item name="buttoncolor">#ffff</item>-->
+        <!--<item name="BackgroundColorApp">@color/backgroundColorApp</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/windowanimationtransition</item>
+    </style>
+
+
+    <style name="windowanimationtransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
 </resources>

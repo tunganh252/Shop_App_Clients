@@ -45,6 +45,7 @@ dependencies {
     implementation 'br.com.simplepass:loading-button-android:1.14.0'
     implementation 'io.paperdb:paperdb:2.6'
     implementation 'com.stepstone.apprating:app-rating:2.0.0'
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
 
 }
 apply plugin: 'com.google.gms.google-services'

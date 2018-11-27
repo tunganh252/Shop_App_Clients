@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.tunganh.duan1_app.General.General;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ public class Home_2 extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.navigation_notifications:
+                    Intent intent = new Intent(Home_2.this, Profile_User.class);
+                    startActivity(intent);
+                    finish();
                     return true;
             }
             return false;
@@ -70,6 +74,8 @@ public class Home_2 extends AppCompatActivity {
         }, 2000);
     }
 
+
+    TextView tv_hienten;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +101,8 @@ public class Home_2 extends AppCompatActivity {
 
 
 
-
+        tv_hienten=findViewById(R.id.tv_hienten);
+        tv_hienten.setText(General.currentUser.getName());
     }
 
     ///// Load quảng cáo

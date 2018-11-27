@@ -64,6 +64,9 @@ public class Home extends AppCompatActivity
                 case R.id.navigation_dashboard:
                     return true;
                 case R.id.navigation_notifications:
+                    Intent intent = new Intent(Home.this, Profile_User.class);
+                    startActivity(intent);
+                    finish();
                     return true;
             }
             return false;
@@ -83,9 +86,9 @@ public class Home extends AppCompatActivity
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         ////////////////////////////////////
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Products");
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setTitle("Products");
+//        setSupportActionBar(toolbar);
 
 
         ////// Paper
@@ -108,11 +111,11 @@ public class Home extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
 
         /////// Hiển thị tên của User lên (Navigation Drawer)
 
@@ -191,45 +194,45 @@ public class Home extends AppCompatActivity
         }, 2000);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_homepage) {
-            loadMenu();
-            return true;
-        }
-        if (id == R.id.action_cart) {
-            Intent i = new Intent(Home.this, Cart.class);
-            startActivity(i);
-            return true;
-        }
-        if (id == R.id.action_logout) {
-            /////// Delete Remember user+password
-            Paper.book().destroy();
-
-            ///// Logout
-            Intent signIn = new Intent(Home.this, SigIn.class);
-            signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(signIn);
-
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.home, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_homepage) {
+//            loadMenu();
+//            return true;
+//        }
+//        if (id == R.id.action_cart) {
+//            Intent i = new Intent(Home.this, Cart.class);
+//            startActivity(i);
+//            return true;
+//        }
+//        if (id == R.id.action_logout) {
+//            /////// Delete Remember user+password
+//            Paper.book().destroy();
+//
+//            ///// Logout
+//            Intent signIn = new Intent(Home.this, SigIn.class);
+//            signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(signIn);
+//
+//
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -245,8 +248,9 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.nav_order) {
             Intent i = new Intent(Home.this, Order_Status.class);
             startActivity(i);
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_user) {
+            Intent i = new Intent(Home.this, Profile_User.class);
+            startActivity(i);
         } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_logout) {

@@ -2,6 +2,9 @@ package com.example.tunganh.duan1_app.DetailsList;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,15 +12,21 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.tunganh.duan1_app.AdapterView.Details_Adapter_View;
+import com.example.tunganh.duan1_app.Cart.Cart;
 import com.example.tunganh.duan1_app.Database.Database;
 import com.example.tunganh.duan1_app.Display.ItemClickListener;
 import com.example.tunganh.duan1_app.General.General;
+import com.example.tunganh.duan1_app.Home;
 import com.example.tunganh.duan1_app.Model.Details;
+import com.example.tunganh.duan1_app.Order_Status.Order_Status;
+import com.example.tunganh.duan1_app.Profile_User;
 import com.example.tunganh.duan1_app.R;
+import com.example.tunganh.duan1_app.SigIn;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +39,37 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailsList extends AppCompatActivity {
+import io.paperdb.Paper;
+
+public class DetailsList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    @SuppressWarnings("StatementWithEmptyBody2")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_menu2) {
+            Intent i = new Intent(DetailsList.this, Home.class);
+            startActivity(i);
+        } else if (id == R.id.nav_cart2) {
+            Intent i = new Intent(DetailsList.this, Cart.class);
+            startActivity(i);
+        } else if (id == R.id.nav_order2) {
+            Intent i = new Intent(DetailsList.this, Order_Status.class);
+            startActivity(i);
+        }else if (id == R.id.nav_user2) {
+            Intent i = new Intent(DetailsList.this, Profile_User.class);
+            startActivity(i);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout2);
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
@@ -55,6 +94,11 @@ public class DetailsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_list);
+
+        //////// Navigation drawer
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view2);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         //Firebase
         database = FirebaseDatabase.getInstance();
@@ -247,4 +291,6 @@ public class DetailsList extends AppCompatActivity {
         Log.d("TAG", "" + adapter.getItemCount());
         recyclerView.setAdapter(adapter);
     }
+
+
 }

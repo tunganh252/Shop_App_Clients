@@ -68,7 +68,7 @@ public class SigIn extends AppCompatActivity {
         rellay1 = (RelativeLayout) findViewById(R.id.rellay1);
         rellay2 = (RelativeLayout) findViewById(R.id.rellay2);
 
-        handler.postDelayed(runnable, 1200); //// timeout for the splash
+        handler.postDelayed(runnable, 1500); //// timeout for the splash
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
 

@@ -37,7 +37,9 @@
         <service
             android:name=".Service.ListenOrder"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".Profile_User"></activity>
     </application>
 
 </manifest>

@@ -17,4 +17,10 @@
 
     <color name="gradStart">#19AA8B</color>
     <color name="gradStop">#23A7D8</color>
+
+    //////// Profile User /////////
+    <color name="colorPrimary1">#1C223C</color>
+    <color name="colorPrimaryDark1">#1C223C</color>
+    <color name="colorAccent1">#FF4081</color>
+    <color name="bgColorApp">#1C223C</color>
 </resources>

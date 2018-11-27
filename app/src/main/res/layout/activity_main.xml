@@ -17,8 +17,8 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="20dp"
+            android:layout_height="160dp"
+            android:layout_marginBottom="50dp"
             android:src="@drawable/logo3" />
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_height="210dp"
             android:gravity="center"
             android:textSize="22sp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="80dp"
             android:text="@string/desc"
             android:fontFamily="@font/font_desc"
             android:textColor="#fff" />

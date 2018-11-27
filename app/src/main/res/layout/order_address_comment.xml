@@ -12,19 +12,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp">
-
-        <View
-            android:layout_width="5.2dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#258a97" />
-
-        <View
-            android:layout_width="5.2dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="#258a97" />
+        android:layout_height="160dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,11 +25,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Address"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:paddingLeft="10dp"
-                android:text=""
                 android:textColor="@color/colorPrimary"
-                android:textSize="34sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_comment"
@@ -50,9 +37,9 @@
                 android:hint="Comment"
                 android:inputType="textMultiLine"
                 android:paddingLeft="10dp"
-                android:text=""
+                android:layout_marginTop="20dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="30sp" />
+                android:textSize="22sp" />
 
         </LinearLayout>
 

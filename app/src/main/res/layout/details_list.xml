@@ -1,29 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout2"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_home"
-
     android:layout_height="match_parent"
-    tools:context=".DetailsList.DetailsList">
+    android:background="@drawable/bg_login"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_below="@id/search_bar"
-        android:id="@+id/recycler_details"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="52dp"
-        android:scrollbars="vertical">
 
-    </android.support.v7.widget.RecyclerView>
+        android:background="@drawable/bg_home"
+        tools:context=".DetailsList.DetailsList">
 
-    <com.mancj.materialsearchbar.MaterialSearchBar
-        android:id="@+id/search_bar"
-        app:mt_speechMode="false"
-        android:layout_margin="6.5dp"
-        android:paddingBottom="7.5dp"
-        app:mt_hint="Enter for search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.mancj.materialsearchbar.MaterialSearchBar>
-</android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/search_bar"
+            android:layout_marginTop="52dp"
+            android:scrollbars="vertical">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6.5dp"
+            android:paddingBottom="7.5dp"
+            app:mt_hint="Enter for search"
+            app:mt_speechMode="false"></com.mancj.materialsearchbar.MaterialSearchBar>
+
+    </android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#a221212b"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_home2"
+        app:itemIconTint="#FFF"
+        app:itemTextColor="#FFF"
+        app:menu="@menu/activity_home_drawer2" />
+</android.support.v4.widget.DrawerLayout>
