@@ -51,7 +51,7 @@ public class SigIn extends AppCompatActivity {
     };
 
 
-    Button bt_dangnhap,bt_dangki,bt_forgot;
+    Button bt_dangnhap, bt_dangki, bt_forgot;
     EditText et_user, et_pass;
     CheckBox checkRemember;
 
@@ -59,6 +59,7 @@ public class SigIn extends AppCompatActivity {
     DatabaseReference table_user;
 
     String validUser = "[a-zA-Z0-9][a-zA-Z0-9\\-]{3,50}";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +72,6 @@ public class SigIn extends AppCompatActivity {
         handler.postDelayed(runnable, 1500); //// timeout for the splash
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
-
 
 
         et_user = findViewById(R.id.et_user);
@@ -119,15 +119,14 @@ public class SigIn extends AppCompatActivity {
                     Handler pdCanceller = new Handler();
                     pdCanceller.postDelayed(progressRunnable, 2000);
 
-                    table_user.addValueEventListener(new ValueEventListener() {
+                    table_user.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             String user1 = et_user.getText().toString();
                             Matcher matcherUser = Pattern.compile(validUser).matcher(user1);
 
-                            if (matcherUser.matches())
-                            {
+                            if (matcherUser.matches()) {
                                 // Check User, if not user ---> exit database
                                 if (dataSnapshot.child(et_user.getText().toString()).exists()) {
                                     // Lay thong tin User
@@ -140,14 +139,16 @@ public class SigIn extends AppCompatActivity {
                                         General.currentUser = user;
                                         startActivity(i);
                                         finish();
+
+                                        table_user.removeEventListener(this);
+
                                     } else {
                                         Toast.makeText(SigIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
                                     Toast.makeText(SigIn.this, "User is not register !!!", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-                            else
+                            } else
                                 Toast.makeText(SigIn.this, "Error Username !!!", Toast.LENGTH_SHORT).show();
 
                         }
@@ -215,9 +216,9 @@ public class SigIn extends AppCompatActivity {
                                     Toast.makeText(SigIn.this, "Your Password: " + user.getPass(), Toast.LENGTH_LONG).show();
                                 } else
                                     Toast.makeText(SigIn.this, "Wrong Email !!!", Toast.LENGTH_SHORT).show();
-                            }else
+                            } else
                                 Toast.makeText(SigIn.this, "Wrong Phone number !!!", Toast.LENGTH_SHORT).show();
-                        }else
+                        } else
                             Toast.makeText(SigIn.this, "Wrong Username !!!", Toast.LENGTH_SHORT).show();
 
                     }
