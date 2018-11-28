@@ -33,6 +33,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import dmax.dialog.SpotsDialog;
 import io.paperdb.Paper;
 
 public class SigIn extends AppCompatActivity {
@@ -182,6 +183,17 @@ public class SigIn extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        ///////////// Check Remember
+        String userRe = Paper.book().read(General.USER_KEY);
+        String passRe = Paper.book().read(General.PASS_KEY);
+        if (userRe != null && passRe != null) {
+            {
+                if (!userRe.isEmpty() && !passRe.isEmpty())
+                    login(userRe, passRe);
+            }
+        }
     }
 
     private void showForgotDialog() {
@@ -240,5 +252,80 @@ public class SigIn extends AppCompatActivity {
 
         builder.show();
 
+    }
+
+    ///////////////////// Check Remember ////////////////////////
+    private void login(final String userRe, final String passRe) {
+        if (General.isConnectedtoInternet(getBaseContext())) {
+
+            /// Firebase
+            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference table_user = database.getReference("User");
+
+
+            final android.app.AlertDialog mDialog = new SpotsDialog(SigIn.this);
+            mDialog.show();
+
+//            final ProgressDialog mDialog = new ProgressDialog(SigIn.this);
+//            mDialog.setMessage("Please waiting...");
+//            mDialog.show();
+
+            table_user.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    // Check User, if not user ---> exit database
+                    if (dataSnapshot.child(userRe).exists()) {
+                        // Lay thong tin User
+
+                        mDialog.dismiss();
+                        User user = dataSnapshot.child(userRe).getValue(User.class);
+                        if (user.getPass().equals(passRe)) {
+                            Intent i = new Intent(SigIn.this, Home_2.class);
+                            General.currentUser = user;
+                            startActivity(i);
+                            finish();
+                        } else {
+                            Toast.makeText(SigIn.this, "Wrong Password !!!", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(SigIn.this, "User is not register !!!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        } else {
+            Toast.makeText(SigIn.this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+    }
+
+
+
+    /////// Hàm back 2 lần để thoát activity
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }

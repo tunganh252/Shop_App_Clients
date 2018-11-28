@@ -114,7 +114,9 @@ public class Register extends AppCompatActivity {
 
                                                 } else {
                                                     mDialog.dismiss();
-                                                    User user = new User(et_pass.getText().toString(),
+                                                    User user = new User(
+                                                            et_user.getText().toString(),
+                                                            et_pass.getText().toString(),
                                                             et_fullname.getText().toString(),
                                                             et_phone.getText().toString(),
                                                             et_email.getText().toString());

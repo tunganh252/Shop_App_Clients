@@ -65,7 +65,7 @@ public class Slide_Hello extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(Slide_Hello.this,MainActivity.class);
+                Intent i = new Intent(Slide_Hello.this,SigIn.class);
                 startActivity(i);
                 finish();
 

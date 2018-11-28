@@ -66,7 +66,6 @@ public class Home extends AppCompatActivity
                 case R.id.navigation_notifications:
                     Intent intent = new Intent(Home.this, Profile_User.class);
                     startActivity(intent);
-                    finish();
                     return true;
             }
             return false;

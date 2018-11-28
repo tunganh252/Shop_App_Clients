@@ -3,6 +3,7 @@ package com.example.tunganh.duan1_app;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
@@ -160,7 +161,7 @@ public class Profile_User extends AppCompatActivity {
                         passwordUpdate.put("pass",ed_newPassword.getText().toString());
 
                         DatabaseReference user=FirebaseDatabase.getInstance().getReference("User");
-                        user.child(General.currentUser.getName())
+                        user.child(General.currentUser.getUser())
                                 .updateChildren(passwordUpdate)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -204,6 +205,9 @@ public class Profile_User extends AppCompatActivity {
         alertDialog.show();
 
     }
+
+
+
 
 }
 

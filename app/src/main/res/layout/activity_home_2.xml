@@ -12,213 +12,35 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="205dp"
-            android:layout_marginRight="6dp"
             android:background="#FFF"
-            android:padding="1.5dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:background="#223654"
                 android:fitsSystemWindows="true"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-
-                <android.support.constraint.ConstraintLayout
+                <ViewFlipper
+                    android:id="@+id/viewFlipper"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Global Collection"
-                        android:textColor="#4b73ac"
-                        android:fontFamily="@font/font_a"
-                        android:textSize="20sp"
-                        />
+                    android:layout_height="200dp"
+                    >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginRight="8dp"
-                        android:fontFamily="@font/font_a"
-                        android:text="View more >"
-                        android:textColor="#e26a44"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                </ViewFlipper>
 
-                </android.support.constraint.ConstraintLayout>
-
-                <LinearLayout
-                    android:weightSum="4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-
-                    android:orientation="horizontal">
-                    ////////////////////////////////
-
-
-                    <LinearLayout
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:gravity="center"
-                        android:layout_weight="1.5"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView5"
-                                android:layout_width="70dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginRight="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:src="@drawable/asset4" />
-
-
-                            <TextView
-                                android:id="@+id/textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="24/24"
-                                android:textColor="#ff9500" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="70dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginRight="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:src="@drawable/asset2" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Pay Card"
-                                android:textColor="#ff9500" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="70dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginRight="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:src="@drawable/asset1" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Hot deal"
-                                android:textColor="#ff9500" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="70dp"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginRight="8dp"
-                                android:layout_marginBottom="8dp"
-                                android:src="@drawable/asset3" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Sale 49%"
-                                android:textColor="#ff9500" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
             </android.support.design.widget.CollapsingToolbarLayout>
-
-
-
-
-
-
-
-
 
         </android.support.design.widget.AppBarLayout>
 
@@ -228,19 +50,209 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
+            android:layout_marginTop="6dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:background="#223654"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/font_a"
+                                android:text="Global Collection"
+                                android:textColor="#4b73ac"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginRight="8dp"
+                                android:fontFamily="@font/font_a"
+                                android:text="View more >"
+                                android:textColor="#e26a44"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent" />
+
+                        </android.support.constraint.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal"
+
+                            android:weightSum="4"
+                            app:layout_anchor="@+id/nestedScrollView"
+                            app:layout_anchorGravity="top|center">
+                            ////////////////////////////////
+
+                            <LinearLayout
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1.5"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/imageView5"
+                                        android:layout_width="70dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginRight="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:src="@drawable/asset4" />
+
+
+                                    <TextView
+                                        android:id="@+id/textView"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="24/24"
+                                        android:textColor="#ff9500" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginRight="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:src="@drawable/asset2" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Pay Card"
+                                        android:textColor="#ff9500" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginRight="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:src="@drawable/asset1" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Hot deal"
+                                        android:textColor="#ff9500" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginRight="8dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:src="@drawable/asset3" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Sale 49%"
+                                        android:textColor="#ff9500" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardElevation="5dp"
-                    app:cardUseCompatPadding="true">
+                    >
 
                     <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
@@ -267,7 +279,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="135dp"
+                        android:layout_height="160dp"
                         android:layout_marginTop="40dp"
                         android:background="@drawable/quangcao" />
 
@@ -276,19 +288,19 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:cardElevation="5dp"
                     app:cardUseCompatPadding="true">
 
                     <TextView
                         android:id="@+id/tv_hienten"
-                        android:text="sdfsfsdf"
-                        android:layout_marginTop="10dp"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/font_a"
-                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/font_a"
+                        android:text="sdfsfsdf"
+                        android:textSize="20sp" />
+
                     <android.support.design.widget.FloatingActionButton
                         android:id="@+id/bt_webView"
                         android:layout_width="wrap_content"
@@ -301,7 +313,6 @@
                         app:layout_anchor="@id/app_bar_layout"
                         app:pressedTranslationZ="3dp"
                         app:useCompatPadding="true" />
-
 
 
                     <TextView
@@ -326,13 +337,6 @@
     </android.support.design.widget.CoordinatorLayout>
 
     //////////////////////////////
-    <ViewFlipper
-        android:id="@+id/viewFlipper"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="5dp">
-
-    </ViewFlipper>
 
 
     <android.support.design.widget.BottomNavigationView

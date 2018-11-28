@@ -23,7 +23,8 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="16dp">
 
                 <ImageButton
                     android:id="@+id/back"
@@ -86,7 +87,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.02"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/account_image" />
 
                 <TextView
@@ -94,10 +95,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@font/font_desc"
                     android:text="Jacklin Silva"
                     android:textColor="#000"
                     android:textSize="22sp"
@@ -189,24 +189,25 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="36dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Phone"
+                    android:fontFamily="@font/font_a"
+                    android:text="Phone number:"
                     android:textColor="#000"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintHorizontal_bias="0.081"
                     app:layout_constraintStart_toEndOf="@+id/imageView4"
                     app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
                 <TextView
                     android:id="@+id/tv_phone"
                     android:layout_width="wrap_content"
-                    android:layout_height="17dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="0366618162"
                     android:textColor="#404040"
-                    android:textSize="12sp"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.064"
                     app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -234,11 +235,12 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Name"
+                    android:fontFamily="@font/font_a"
+                    android:text="Name:"
                     android:textColor="#000"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintHorizontal_bias="0.052"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
                     app:layout_constraintTop_toBottomOf="@+id/bt_changePass" />
 
@@ -247,13 +249,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="Tung Anh Nguyen"
                     android:textColor="#404040"
-                    android:textSize="12sp"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.073"
+                    app:layout_constraintHorizontal_bias="0.082"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
                     app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -285,26 +287,27 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="36dp"
                     android:layout_marginEnd="8dp"
-                    android:text="Email"
+                    android:fontFamily="@font/font_a"
+                    android:text="Email address:"
                     android:textColor="#000"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.059"
+                    app:layout_constraintHorizontal_bias="0.077"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
                     app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
 
                 <TextView
                     android:id="@+id/tv_email"
                     android:layout_width="wrap_content"
-                    android:layout_height="16dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="8dp"
                     android:text="anhntps07556@fpt.edu"
                     android:textColor="#404040"
-                    android:textSize="12sp"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.088"
+                    app:layout_constraintHorizontal_bias="0.12"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
             </android.support.constraint.ConstraintLayout>

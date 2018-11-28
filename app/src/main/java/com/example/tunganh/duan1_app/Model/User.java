@@ -1,6 +1,7 @@
 package com.example.tunganh.duan1_app.Model;
 
 public class User {
+    private String User;
     private String Pass;
     private String Name;
     private String Phone;
@@ -10,12 +11,21 @@ public class User {
     public User() {
     }
 
-    public User(String pass, String name, String phone, String email) {
+    public User(String user, String pass, String name, String phone, String email) {
+        User = user;
         Pass = pass;
         Name = name;
         Phone = phone;
         Email = email;
         Admin="false";
+    }
+
+    public String getUser() {
+        return User;
+    }
+
+    public void setUser(String user) {
+        User = user;
     }
 
     public String getPass() {
