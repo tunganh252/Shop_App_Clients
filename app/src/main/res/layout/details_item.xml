@@ -116,6 +116,7 @@
                     app:srcCompat="@drawable/ic_border_heart" />
 
                 <ImageView
+                    android:id="@+id/bt_share"
                     android:layout_width="50dp"
                     android:layout_height="30dp"
                     android:layout_alignParentTop="true"

@@ -46,6 +46,7 @@ dependencies {
     implementation 'io.paperdb:paperdb:2.6'
     implementation 'com.stepstone.apprating:app-rating:2.0.0'
     implementation 'com.github.d-max:spots-dialog:0.7@aar'
+    implementation 'com.facebook.android:facebook-share:[4,5)'
 
 }
 apply plugin: 'com.google.gms.google-services'

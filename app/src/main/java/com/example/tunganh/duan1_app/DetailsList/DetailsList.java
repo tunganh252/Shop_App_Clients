@@ -1,6 +1,8 @@
 package com.example.tunganh.duan1_app.DetailsList;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -27,6 +29,12 @@ import com.example.tunganh.duan1_app.Order_Status.Order_Status;
 import com.example.tunganh.duan1_app.Profile_User;
 import com.example.tunganh.duan1_app.R;
 import com.example.tunganh.duan1_app.SigIn;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
+import com.facebook.share.widget.ShareDialog;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +79,38 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
     }
 
 
+    ////////////////////////// Share Facebook
+    CallbackManager callbackManager;
+    ShareDialog shareDialog;
+    /// Target from library Picasso
+    Target target = new Target() {
+        @Override
+        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+            SharePhoto photo=new SharePhoto.Builder()
+                    .setBitmap(bitmap)
+                    .build();
+            if (ShareDialog.canShow(SharePhotoContent.class))
+            {
+                SharePhotoContent content=new SharePhotoContent.Builder()
+                        .addPhoto(photo)
+                        .build();
+                shareDialog.show(content);
+            }
+        }
+
+        @Override
+        public void onBitmapFailed(Drawable errorDrawable) {
+
+        }
+
+        @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+        }
+    };
+    ///////////////////////////////////////
+
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
@@ -93,11 +134,18 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.details_list);
 
         //////// Navigation drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view2);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //// Init Facebook
+        callbackManager = CallbackManager.Factory.create();
+        shareDialog=new ShareDialog(this);
+
 
 
         //Firebase
@@ -254,6 +302,17 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
                 //// Add favorite
                 if (localDB.isFavorite(adapter.getRef(position).getKey()))
                     viewHolder.fav_image.setImageResource(R.drawable.heart);
+
+                //// Click Share
+                viewHolder.bt_share.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Picasso.with(getApplicationContext())
+                                .load(model.getImage())
+                                .into(target);
+                    }
+                });
+
                 //// Click to change favorite (Thả tim.... :)))
                 viewHolder.fav_image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -291,6 +350,8 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
         Log.d("TAG", "" + adapter.getItemCount());
         recyclerView.setAdapter(adapter);
     }
+
+
 
 
 }

@@ -48,10 +48,10 @@ public class Profile_User extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.darktheam);
-        } else
-            setTheme(R.style.AppTheme);
+//        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+//            setTheme(R.style.darktheam);
+//        } else
+//            setTheme(R.style.AppTheme);
 
 
         super.onCreate(savedInstanceState);
@@ -102,26 +102,6 @@ public class Profile_User extends AppCompatActivity {
             }
         });
 
-        facebook = (ImageView) findViewById(R.id.imageView4);
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
-        instagram = (ImageView) findViewById(R.id.imageView7);
-        instagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
-        follow = (ImageView) findViewById(R.id.imageView6);
-        follow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");

@@ -1,4 +1,5 @@
 <resources>
+    <string name="desc">“You can’t connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future.”</string>
     <string name="app_name">Shop Con Cú</string>
     <string name="title_activity_home">Home</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -7,5 +8,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="title_activity_home_2">Home Page</string>
     <string name="forgot_password"><u> Forgot Password ? </u> </string>
-    <string name="desc">“You can’t connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future.”</string>
+    <string name="facebook_app_id">304515423725640</string>
+    <string name="fb_login_protocol_scheme">fb304515423725640</string>
 </resources>
