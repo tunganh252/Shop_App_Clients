@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="12dp"
-    app:cardElevation="4dp"
     android:background="#FFF"
-    app:cardCornerRadius="5dp"
     android:scrollbars="vertical"
+    app:cardElevation="40dp"
     android:elevation="20dp">
 
     <RelativeLayout
+        android:background="#1C223C"
         android:layout_width="match_parent"
         android:layout_height="160dp">
 
@@ -24,10 +24,11 @@
                 android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Address"
                 android:inputType="textMultiLine"
                 android:paddingLeft="10dp"
-                android:textColor="@color/colorPrimary"
+                android:hint="Address"
+                android:textColorHint="#acb7b6b6"
+                android:textColor="#FFF"
                 android:textSize="20sp" />
 
             <EditText
@@ -37,8 +38,9 @@
                 android:hint="Comment"
                 android:inputType="textMultiLine"
                 android:paddingLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="30dp"
+                android:textColor="#FFF"
+                android:textColorHint="#acb7b6b6"
                 android:textSize="22sp" />
 
         </LinearLayout>

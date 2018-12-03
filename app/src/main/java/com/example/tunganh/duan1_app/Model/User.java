@@ -7,17 +7,27 @@ public class User {
     private String Phone;
     private String Email;
     private String Admin;
+    private String Image;
 
     public User() {
     }
 
-    public User(String user, String pass, String name, String phone, String email) {
+    public User(String user, String pass, String name, String phone, String email,String image) {
         User = user;
         Pass = pass;
         Name = name;
         Phone = phone;
         Email = email;
+        Image = image;
         Admin="false";
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 
     public String getUser() {

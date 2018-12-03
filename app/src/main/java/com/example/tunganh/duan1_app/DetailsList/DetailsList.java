@@ -7,8 +7,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -16,6 +18,9 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
 
 import com.example.tunganh.duan1_app.AdapterView.Details_Adapter_View;
@@ -131,6 +136,9 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
     MaterialSearchBar materialSearchBar;
 
 
+    SwipeRefreshLayout swipeRefreshLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,6 +148,50 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
         //////// Navigation drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view2);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        ///// Swipe
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipe_layout);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark
+        );
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (getIntent() != null)
+                    categoryId = getIntent().getStringExtra("CategoryId");
+                if (!categoryId.isEmpty() && categoryId != null) {
+                    if (General.isConnectedtoInternet(getBaseContext()))
+                        loadListDetails(categoryId);
+                    else {
+                        Toast.makeText(DetailsList.this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+            }
+        });
+
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                if (getIntent() != null)
+                    categoryId = getIntent().getStringExtra("CategoryId");
+                if (!categoryId.isEmpty() && categoryId != null) {
+                    if (General.isConnectedtoInternet(getBaseContext()))
+                        loadListDetails(categoryId);
+                    else {
+                        Toast.makeText(DetailsList.this, "Check your connection !!!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+
+            }
+        });
+
 
 
         //// Init Facebook
@@ -155,10 +207,14 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
         // Local DB
         localDB = new Database(this);
 
+
         recyclerView = findViewById(R.id.recycler_details);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        Animation controller = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.item_animation_right_left);
+        recyclerView.setAnimation(controller);
+
 
         //// Get intent i chứa CategoryId
 
@@ -296,6 +352,7 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
             @Override
             protected void populateViewHolder(final Details_Adapter_View viewHolder, final Details model, final int position) {
                 viewHolder.details_name.setText(model.getName());
+                viewHolder.price.setText(String.format("$ %s",model.getPrice(),toString()));
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.details_image);
 
@@ -349,6 +406,7 @@ public class DetailsList extends AppCompatActivity implements NavigationView.OnN
         /// set Adapter
         Log.d("TAG", "" + adapter.getItemCount());
         recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
     }
 
 

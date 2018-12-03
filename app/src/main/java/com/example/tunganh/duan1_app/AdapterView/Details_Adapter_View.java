@@ -12,7 +12,7 @@ import com.example.tunganh.duan1_app.R;
 public class Details_Adapter_View extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-    public TextView details_name;
+    public TextView details_name,price;
     public ImageView details_image,fav_image,bt_share;
 
     private ItemClickListener itemClickListener;
@@ -29,6 +29,7 @@ public class Details_Adapter_View extends RecyclerView.ViewHolder implements Vie
         details_image=itemView.findViewById(R.id.details_image);
         fav_image=itemView.findViewById(R.id.favo);
         bt_share=itemView.findViewById(R.id.bt_share);
+        price=itemView.findViewById(R.id.price);
 
         itemView.setOnClickListener(this);
     }

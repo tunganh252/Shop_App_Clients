@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,6 +20,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +53,9 @@ public class Home extends AppCompatActivity
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseRecyclerAdapter<Category, Menu_Adapter_View> adapter;
+
+
+    SwipeRefreshLayout swipeRefreshLayout;
 
     //////////////////
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -90,9 +98,43 @@ public class Home extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
+        ///// Swipe
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark
+        );
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (General.isConnectedtoInternet(getBaseContext()))
+                    loadMenu();
+                else {
+                    Toast.makeText(Home.this, "Please check your connection !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
+
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                if (General.isConnectedtoInternet(getBaseContext()))
+                    loadMenu();
+                else {
+                    Toast.makeText(Home.this, "Please check your connection !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+            }
+        });
+
+
         ////// Paper
         Paper.init(this);
-
 
 
         //// Firebase:
@@ -126,9 +168,14 @@ public class Home extends AppCompatActivity
 
         ////// Load Menu
         recycler_menu = findViewById(R.id.recycler_menu);
-        recycler_menu.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recycler_menu.setLayoutManager(layoutManager);
+        recycler_menu.setLayoutManager(new GridLayoutManager(this, 2));
+
+        Animation controller = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.item_animation_fall_down);
+        recycler_menu.setAnimation(controller);
+
+//        layoutManager = new LinearLayoutManager(this);
+//        recycler_menu.setLayoutManager(layoutManager);
+
 
         if (General.isConnectedtoInternet(this))
             loadMenu();
@@ -169,6 +216,11 @@ public class Home extends AppCompatActivity
             }
         };
         recycler_menu.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
+
+        //// animation
+        recycler_menu.getAdapter().notifyDataSetChanged();
+        recycler_menu.scheduleLayoutAnimation();
     }
 
     /////// Hàm back 2 lần để thoát activity

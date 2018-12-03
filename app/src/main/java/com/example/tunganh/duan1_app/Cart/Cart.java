@@ -1,6 +1,7 @@
 package com.example.tunganh.duan1_app.Cart;
 
 import android.content.DialogInterface;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.example.tunganh.duan1_app.AdapterView.CartAdapter;
 import com.example.tunganh.duan1_app.Database.Database;
 import com.example.tunganh.duan1_app.General.General;
+import com.example.tunganh.duan1_app.Home;
 import com.example.tunganh.duan1_app.Model.Order;
 import com.example.tunganh.duan1_app.Model.Order_Details;
 import com.example.tunganh.duan1_app.R;
@@ -37,22 +39,61 @@ public class Cart extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference requests;
 
-    TextView tv_total;
+    public TextView tv_total;
     Button bt_place;
 
     List<Order> cart = new ArrayList<>();
     CartAdapter adapter;
+
+
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart);
 
+        ///// Swipe
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark
+        );
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (General.isConnectedtoInternet(getBaseContext()))
+                    loadListDetail();
+                else {
+                    Toast.makeText(Cart.this, "Please check your connection !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
+
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                if (General.isConnectedtoInternet(getBaseContext()))
+                    loadListDetail();
+                else {
+                    Toast.makeText(Cart.this, "Please check your connection !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+            }
+        });
+
+
         // Firebase
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Order_Details");
 
-///Truyền list danh sách mua hàng
+
+        ///Truyền list danh sách mua hàng
         recyclerView = findViewById(R.id.listCart);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -75,22 +116,43 @@ public class Cart extends AppCompatActivity {
 
     }
 
+    private void loadListDetail() {
+        cart = new Database(this).getCarts();
+        adapter = new CartAdapter(cart, this);
+        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
+
+
+        /// Tính tổng tiển
+        int total = 0;
+        for (Order order : cart)
+            total += (Integer.parseInt(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
+        Locale locale = new Locale("en", "US");
+        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
+
+        tv_total.setText(fmt.format(total));
+
+
+    }
+
+
     private void showAlertDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
-        alertDialog.setTitle("One more step !!!");
-        alertDialog.setMessage("Enter your address: ");
+        alertDialog.setTitle("Fill information !!!");
+//        alertDialog.setMessage("Enter your address: ");
 
 
-        LayoutInflater inflater=this.getLayoutInflater();
-        View order_address_comment = inflater.inflate(R.layout.order_address_comment,null);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View order_address_comment = inflater.inflate(R.layout.order_address_comment, null);
 
-        final EditText et_address=order_address_comment.findViewById(R.id.et_address);
-        final EditText et_comment=order_address_comment.findViewById(R.id.et_comment);
+        final EditText et_address = order_address_comment.findViewById(R.id.et_address);
+        final EditText et_comment = order_address_comment.findViewById(R.id.et_comment);
 
         alertDialog.setView(order_address_comment);
-        alertDialog.setIcon(R.drawable.ic_mall);
+//        alertDialog.setIcon(R.drawable.ic_mall);
 
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Order_Details request = new Order_Details(
@@ -112,7 +174,7 @@ public class Cart extends AppCompatActivity {
                 finish();
             }
         });
-        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("CANCLE", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
 
@@ -122,25 +184,6 @@ public class Cart extends AppCompatActivity {
         });
 
         alertDialog.show();
-    }
-
-    private void loadListDetail() {
-        cart = new Database(this).getCarts();
-        adapter = new CartAdapter(cart, this);
-        adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(adapter);
-
-
-        /// Tính tổng tiển
-        int total = 0;
-        for (Order order : cart)
-            total += (Integer.parseInt(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
-        Locale locale = new Locale("en", "US");
-        NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-
-        tv_total.setText(fmt.format(total));
-
-
     }
 
 

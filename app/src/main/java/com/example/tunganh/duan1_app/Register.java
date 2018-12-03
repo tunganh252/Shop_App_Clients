@@ -12,6 +12,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +31,8 @@ import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
     //    MaterialEditText et_user, et_fullname,et_pass, et_phone,et_email;
-    EditText et_user, et_fullname, et_pass, et_phone, et_email;
-    Button bt_dangki;
+    EditText et_user, et_fullname, et_pass, et_phone, et_email, et_image;
+    Button bt_dangki, bt_dangnhap;
 
 
     String validEmail = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}"
@@ -52,7 +53,18 @@ public class Register extends AppCompatActivity {
         et_fullname = findViewById(R.id.et_fullname);
         et_phone = findViewById(R.id.et_phone);
         et_email = findViewById(R.id.et_email);
+        et_image = findViewById(R.id.et_image);
+
         bt_dangki = findViewById(R.id.bt_dangki);
+        bt_dangnhap = findViewById(R.id.bt_dangnhap);
+
+        bt_dangnhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Register.this, SigIn.class);
+                startActivity(i);
+            }
+        });
         /// Firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
@@ -119,13 +131,11 @@ public class Register extends AppCompatActivity {
                                                             et_pass.getText().toString(),
                                                             et_fullname.getText().toString(),
                                                             et_phone.getText().toString(),
-                                                            et_email.getText().toString());
+                                                            et_email.getText().toString(),
+                                                            et_image.getText().toString());
                                                     table_user.child(et_user.getText().toString()).setValue(user);
                                                     Toast.makeText(Register.this, "Register successfully !!!", Toast.LENGTH_SHORT).show();
-                                                    finish();
 
-                                                    Intent i = new Intent(Register.this, SigIn.class);
-                                                    startActivity(i);
                                                 }
 
                                             } else {

@@ -38,7 +38,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="3dp"
-                android:background="#d407d16c"
+                android:background="#a9838282"
                 android:fontFamily="@font/font_a"
                 android:gravity="center"
                 android:padding="8dp"
@@ -47,6 +47,7 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_alignBottom="@+id/details_image"
@@ -54,14 +55,15 @@
                 android:layout_marginTop="-4dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="10dp"
-                android:padding="10dp"
                 android:layout_marginBottom="-42dp"
-                android:background="@drawable/buttonsingup"
+                android:background="#a5d72f"
                 android:fontFamily="@font/font_a"
-                android:gravity="top"
-                android:text="Click to buy"
+                android:gravity="right|top"
+                android:text="$999"
+                android:paddingTop="3dp"
+                android:paddingRight="30dp"
                 android:textColor="#FFF"
-                android:textSize="16sp" />
+                android:textSize="24sp" />
 
             <View
                 android:layout_width="5dp"
@@ -93,8 +95,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="168dp"
-                    android:layout_marginTop="254dp"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginTop="256dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_buy" />
@@ -106,12 +108,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="250dp"
-                    android:layout_marginEnd="76dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/et_pass"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="252dp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_border_heart" />
 
@@ -122,13 +121,10 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="252dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="152dp"
+                    android:layout_marginTop="256dp"
                     android:tint="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/et_pass"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_menu_share" />
             </android.support.constraint.ConstraintLayout>

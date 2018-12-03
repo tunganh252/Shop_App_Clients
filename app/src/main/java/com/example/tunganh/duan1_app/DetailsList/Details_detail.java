@@ -43,6 +43,7 @@ public class Details_detail extends AppCompatActivity implements RatingDialogLis
     ImageView details_image;
     CollapsingToolbarLayout collapsingToolbarLayout;
     FloatingActionButton bt_cart;
+
     ElegantNumberButton bt_number;
 
     String detailsId = "";
