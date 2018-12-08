@@ -243,22 +243,22 @@ public class Details_detail extends AppCompatActivity implements RatingDialogLis
                 comments,
                 currentDetails.getName()
         );
-        ratingTbl.child(General.currentUser.getPhone()).addValueEventListener(new ValueEventListener() {
+        ratingTbl.child(General.currentUser.getName()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(General.currentUser.getPhone()).exists()) {
+                if (dataSnapshot.child(General.currentUser.getName()).exists()) {
 
                     ////// Remove old value
-                    ratingTbl.child(General.currentUser.getPhone()).removeValue();
+                    ratingTbl.child(General.currentUser.getName()).removeValue();
 
                     ///// Update new value
-                    ratingTbl.child(General.currentUser.getPhone()).setValue(rating);
+                    ratingTbl.child(General.currentUser.getName()).setValue(rating);
                     ratingTbl.child(currentDetails.getName());
 
                 } else {
 
                     ////// Update new value
-                    ratingTbl.child(General.currentUser.getPhone()).setValue(rating);
+                    ratingTbl.child(General.currentUser.getName()).setValue(rating);
                 }
 
                 Toast.makeText(Details_detail.this, "Thanks for your feedback !!!", Toast.LENGTH_SHORT).show();
