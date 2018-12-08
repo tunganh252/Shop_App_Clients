@@ -479,9 +479,14 @@ public class Profile_User extends AppCompatActivity implements  View.OnCreateCon
     private void showChangePasswordDialog() {
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Profile_User.this);
+        alertDialog.setTitle("Change Password !!!");
+        alertDialog.setMessage("Fill old & new password: ");
+        alertDialog.setIcon(R.drawable.ic_edit_black_24dp);
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout_change = inflater.inflate(R.layout.change_password, null);
+
+
 
         final EditText ed_password = layout_change.findViewById(R.id.ed_password);
         final EditText ed_newPassword = layout_change.findViewById(R.id.ed_newPassword);

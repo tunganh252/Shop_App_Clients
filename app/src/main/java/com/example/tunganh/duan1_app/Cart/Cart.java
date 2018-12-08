@@ -140,7 +140,7 @@ public class Cart extends AppCompatActivity {
     private void showAlertDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
         alertDialog.setTitle("Fill information !!!");
-//        alertDialog.setMessage("Enter your address: ");
+        alertDialog.setMessage("Enter your address: ");
 
 
         LayoutInflater inflater = this.getLayoutInflater();
@@ -150,7 +150,7 @@ public class Cart extends AppCompatActivity {
         final EditText et_comment = order_address_comment.findViewById(R.id.et_comment);
 
         alertDialog.setView(order_address_comment);
-//        alertDialog.setIcon(R.drawable.ic_mall);
+        alertDialog.setIcon(R.drawable.ic_mall);
 
         alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

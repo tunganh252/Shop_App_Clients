@@ -5,15 +5,25 @@ public class Rating {
     private String detailsId;
     private String rateValue;
     private String comment;
+    private String product;
 
     public Rating() {
     }
 
-    public Rating(String userName, String detailsId, String rateValue, String comment) {
+    public Rating(String userName, String detailsId, String rateValue, String comment, String product) {
         this.userName = userName;
         this.detailsId = detailsId;
         this.rateValue = rateValue;
         this.comment = comment;
+        this.product = product;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public String getUserName() {

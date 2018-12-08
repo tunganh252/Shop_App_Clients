@@ -58,6 +58,7 @@ public class Details_detail extends AppCompatActivity implements RatingDialogLis
     LinearLayout bt_rating;
     RatingBar ratingBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,8 +159,8 @@ public class Details_detail extends AppCompatActivity implements RatingDialogLis
                     count++;
                 }
                 if (count != 0) {
-                    float average = sum * count;
-                ratingBar.setRating(average);
+                    float average = sum / count;
+                    ratingBar.setRating(average);
                 }
 
             }
@@ -233,27 +234,33 @@ public class Details_detail extends AppCompatActivity implements RatingDialogLis
 
     @Override
     public void onPositiveButtonClicked(int value, String comments) {
-//// Get Rating and upload firebase
-        final Rating rating = new Rating(General.currentUser.getName(),
+
+        //// Get Rating and upload firebase
+        final Rating rating = new Rating(
+                General.currentUser.getName(),
                 detailsId,
                 String.valueOf(value),
-                comments);
-        ratingTbl.child(General.currentUser.getName()).addValueEventListener(new ValueEventListener() {
+                comments,
+                currentDetails.getName()
+        );
+        ratingTbl.child(General.currentUser.getPhone()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(General.currentUser.getName()).exists()) {
+                if (dataSnapshot.child(General.currentUser.getPhone()).exists()) {
 
                     ////// Remove old value
-                    ratingTbl.child(General.currentUser.getName()).removeValue();
+                    ratingTbl.child(General.currentUser.getPhone()).removeValue();
 
                     ///// Update new value
-                    ratingTbl.child(General.currentUser.getName()).setValue(rating);
+                    ratingTbl.child(General.currentUser.getPhone()).setValue(rating);
+                    ratingTbl.child(currentDetails.getName());
 
                 } else {
 
                     ////// Update new value
-                    ratingTbl.child(General.currentUser.getName()).setValue(rating);
+                    ratingTbl.child(General.currentUser.getPhone()).setValue(rating);
                 }
+
                 Toast.makeText(Details_detail.this, "Thanks for your feedback !!!", Toast.LENGTH_SHORT).show();
             }
 
